@@ -21,6 +21,29 @@ function prepareEvent() {
 	}
 }
 
+function insertAfter(newElement,targetElement){
+	var parent = targetElement.parentNode;
+	if (parent.lastChild == targetElement) {
+		parent.appendChild(newElement);
+	}else{
+		parent.insertBefore(newElement,targetElement.nextSibling);
+	}
+}
+
+function preparePlaceholder() {
+	var placeholder = document.createElement("img");
+	placeholder.setAttribute("id","placeholder");
+	placeholder.setAttribute("src","image/no.jpg");
+	placeholder.setAttribute("alt","This is a blank area.");
+	var description = document.createElement("p");
+	description.setAttribute("id","text");
+	var desctext = document.createTextNode("Choose an image");
+	description.appendChild(desctext);
+	var gallery = document.getElementById("list");
+	insertAfter(placeholder,gallery);
+	insertAfter(description,placeholder);
+}
+
 function showPic(whichpic) {
 	var ahref = whichpic.getAttribute("href");
 	var placeholder = document.getElementById("placeholder");
@@ -31,3 +54,4 @@ function showPic(whichpic) {
 }
 
 addLoadEvent(prepareEvent);
+addLoadEvent(preparePlaceholder);
