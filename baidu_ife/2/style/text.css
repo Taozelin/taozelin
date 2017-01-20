@@ -1,0 +1,164 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Microsoft YaHei";
+}
+
+/*--µ¼º½À¸--*/
+
+#header {
+	background-color: #393939;
+	height: 100px;
+
+}
+
+#header>ul {
+	height: 100px;
+    float: right;
+    margin-right: 10px;
+}
+
+#header>ul li {
+	line-height: 100px;
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+#header a {
+	text-decoration: none;
+}
+
+#header a:link , #header a:visited {
+    color: #ddd;
+}
+
+#header a:hover , #header a:active {
+	color: #999;
+}
+
+/*--Ö÷Ìå--*/
+
+.mainBody {
+	width: 95%;
+	border-style: outset;
+	margin: 20px auto;
+	padding: 32px 16px;
+}
+
+.mainBody>p {
+	text-indent: 2em;
+}
+
+.mainBody>h3 , .mainBody>h4 {
+	color: #999;
+}
+
+.mainBody>h2 , .mainBody>h3 , .mainBody>h4 , .mainBody>p , .mainBody>img , .mainBody>ul {
+	margin: 8px 0px;
+}
+
+.mainBody>ul {
+	list-style: none;
+	padding-left: 20px;
+}
+
+.listPic li{
+    border:1px solid #ccc;
+    width: 150px;
+    height: 155px;
+    text-align: center;
+}
+
+.listPic li>img {
+	width: 120px;
+	height: 120px;
+	margin-top: 5px;
+}
+
+.listPic li {
+	margin:10px 0px;
+}
+
+.lastBody>ol {
+    margin-left: 50px;
+}
+
+.lastBody>table {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+.lastBody>table tr td {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+.lastBody .firsttd {
+    background-color: #393939;
+    color: #fff;
+}
+
+.lastBody .lasttd {
+	background-color: #ccc;
+}
+
+.sideBar h3 {
+	color: #000;
+	border-left: 4px solid #ccc;
+	padding: 10px;
+}
+
+.btn input {
+	height: 45px;
+	width: 100%;
+	color: #fff;
+	background-color: #4854FF;
+	border-radius: 14px;
+	font-size: 23px;
+}
+
+.text {
+	margin-left: 35%;
+}
+
+.text2 {
+	margin-left: calc(35% + 32px);
+}
+
+.text3 {
+	margin-left: calc(35% + 80px);
+}
+
+.text4 {
+	margin-left: calc(35% + 48px);
+}
+
+.text4>label {
+	vertical-align: top;
+}
+
+.text4>textarea {
+	width: 70%;
+	height: 110px;
+}
+
+.tip {
+	margin-left: calc(35% + 120px);
+	color: #999;
+	margin-bottom: 10px;
+}
+
+.sideBar form>div {
+	margin-bottom: 10px;
+}
+/*--Ò³½Å--*/
+
+#footer {
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+}
+
