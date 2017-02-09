@@ -1,0 +1,44 @@
+#wrap {
+	background-color: #eee;
+	border: 1px solid #999;
+	padding: 20px;
+	position: relative;
+	overflow: auto;
+}
+
+.team {
+	width: 158px;
+	float: left;
+	padding: 20px;
+	border: 1px solid #999;
+	background-color: #fff;
+}
+
+.team_logo {
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-right: 0px;
+}
+
+.cont {
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 20px;
+	position: absolute;
+	left: 240px;
+	right: 160px;
+	margin-bottom: 20px;
+}
+
+.personal {
+	border: 1px solid #999;
+	background-color: #fff;
+	float: right;
+	width: 78px;
+	padding: 20px;
+}
+
+.presonal_logo {
+	margin-bottom: 5px;
+}
