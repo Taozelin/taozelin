@@ -1,0 +1,150 @@
+body,dl,dt,dd,p,h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+.clearfloat:after {
+	content: "";
+	display: block;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.clearfloat {
+	zoom: 1;
+}
+
+/*-----------------wrap-------------------*/
+
+#wrap {
+	margin: 50px auto;
+	width: 880px;
+	height: 524px;
+	background: url(../images/bg.png);
+	padding-top: 165px;
+	padding-left: 120px;
+}
+
+.main {
+    width: 710px;
+    height: 328px;
+    padding-top: 32px;
+    padding-left: 50px;
+    background: #fff;
+}
+
+.main h2 {
+	width: 628px;
+	height: 48px;
+	line-height: 48px;
+	font-size: 16px;
+	font-weight: normal;
+	border-top: 2px solid #e7788d;
+	color: #e7788d;
+	background: url(../images/ball.png) no-repeat left 12px;
+	padding-left: 32px;
+}
+
+/*----------------cont----------------------*/
+
+.cont {
+	width: 660px;
+	padding-bottom: 12px;
+	border-bottom: 1px dashed #e5e5e5;
+}
+
+.cont dl {
+	width: 100px;
+	float: left;
+	margin-right: 40px;
+}
+
+#clearMargin {
+	margin-right: 0px;
+}
+
+.cont dl dt {
+	width: 98px;
+	height: 98px;
+	border: 1px solid #e5e5e5;
+}
+
+.cont dl dt img {
+	margin-left: 11px;
+	margin-top: 16px;
+}
+
+.cont dl dd p {
+	font-size: 15px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	color: #3a3a3a;
+}
+
+
+/*------------footer-------------------*/
+
+.footer {
+	padding-top: 19px;
+}
+
+.footer p {
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+strong {
+	display: block;
+	width: 100px;
+	height: 30px;
+	background: #e7788d;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+	color: #fef8f9;
+	float: left;
+	margin-right: 6px;
+}
+
+.footer p span {
+	display: block;
+	float: left;
+	width: 91px;
+	text-align: center;
+	font-size: 14px;
+	height: 16px;
+	border-right: 2px solid #a5a5a5;
+	margin-top: 7px;
+}
+
+.footer p span a:link {
+	color: #3a3a3a;
+}
+
+.footer p span a:hover {
+	color: #e7788d;
+}
+
+#noborder {
+	border-right: none;
+}
+
+#diffWidth {
+	width: 116px;
+}

@@ -1,0 +1,166 @@
+/*------------cssReset----------------*/
+
+body,h2,h3,dl,dt,dd,p {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,li {
+	list-style: none;
+}
+
+.clearfloat:after {
+	content: "";
+	display: block;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.clearfloat {
+	zoom: 1;
+}
+
+/*--------head&main----------*/
+
+#main {
+	width: 714px;
+	height: 473px;
+	border: 1px solid #bfbfbf;
+	margin: 50px auto;
+	padding-left: 31px;
+	padding-top: 32px;
+}
+
+.title {
+	height: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	background: url(../images/fire.png) no-repeat left top;
+	padding-left: 27px;
+	font-weight: normal;
+	margin-bottom: 33px;
+}
+
+/*--------cont---------*/
+
+.cont {
+	width: 685px;
+}
+
+.cont_left {
+	float: left;
+}
+
+.cont_left dt{
+	width: 128px;
+	height: 178px;
+	border: 1px solid #bfbfbf;
+	float: left;
+}
+
+.cont_left dd {
+	float: left;
+	margin-left: 18px;
+	width: 151px;
+}
+
+.cont_left dd h3{
+    font-size: 16px;
+    font-weight: normal;
+    color: #06b1da;
+    height: 16px;
+    line-height: 16px;
+    margin-bottom: 12px;
+}
+
+.cont_left dd p {
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	color: #6a6a6a;
+}
+
+.btn {
+	margin-top: 18px;
+}
+
+.btn a {
+	border: 1px solid #06b1da;
+	display: block;
+	width: 68px;
+	height: 28px;
+    color: #44b5db;
+    line-height: 28px;
+    font-size: 11px;
+    text-align: center;
+    float: left;
+}
+
+.margin_right11 {
+	margin-right: 11px;
+}
+
+.btn a span {
+    display: block;
+    width: 66px;
+    height: 26px;
+    background: #00afd9;
+    border: 1px solid #6bd6f0;
+    font-size: 11px;
+	line-height: 26px;
+	text-align: center;
+	color: #fffffd;
+}
+
+.margin_left55 {
+	margin-left: 72px;
+}
+
+/*---------footer-------------*/
+
+.footer {
+	width: 685px;
+	margin-top: 40px;
+}
+
+.footer dl dt {
+	height: 88px;
+	width: 128px;
+	border: 1px solid #bfbfbf;
+}
+
+.footer dl dd h3{
+    font-size: 16px;
+    font-weight: normal;
+    height: 26px;
+    line-height: 26px;
+    margin-top: 9px;
+    color: #57c1e1;
+}
+
+.footer dl dd p {
+	font-size: 16px;
+	height: 26px;
+	line-height: 26px;
+	color: #6a6a6a;
+}
+
+.footer dl {
+	float: left;
+	margin-right: 55px;
+}
+
+#marginright0 {
+	margin-right: 0px;
+}
