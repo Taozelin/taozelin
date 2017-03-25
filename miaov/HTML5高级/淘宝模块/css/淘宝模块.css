@@ -1,0 +1,185 @@
+#wrap {
+	width: 1189px;
+	height: 365px;
+	margin: 100px auto;
+}
+
+.cont_1 {
+	width: 183px;
+	height: 362px;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	padding-top: 1px;
+	padding-left: 14px;
+	float: left;
+}
+
+.cont_1 h2 {
+    width: 169px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    background: url(../images/logo.png) no-repeat 36px 15px;
+    color: #3c3c3c;
+}
+
+.cont_111 {
+	width: 169px;
+	height: 100px;
+}
+
+.cont_112 {
+	width: 167px;
+	height: 48px;
+	border: 1px solid #f5f5f5;
+	background: #f5f5f5;
+}
+
+.cont_112 h3 {
+	width: 167px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #3c3c3c;
+	margin-top: 7px;
+	text-align: center;
+}
+
+.cont_112 p {
+	width: 167px;
+	height: 18px;
+	line-height: 18px;
+	height: 12px;
+	color: #9c9c9c;
+	text-align: center;
+}
+
+.cont_12 {
+	width: 169px;
+	height: 102px;
+	margin-top: 13px;
+}
+
+.cont_12 img {
+	float: left;
+}
+
+.cont_12 .marginright {
+	margin-right: 9px;
+}
+
+.cont_12 dl {
+	float: left;
+	width: 80px;
+	height: 102px;
+}
+
+.cont_12 dl dt {
+	width: 80px;
+	height: 70px;
+}
+
+.cont_12 dl dd {
+	width: 80px;
+	height: 32px;
+}
+
+.cont_12 dl dd p {
+	width: 79px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #3c3c3c;
+}
+
+.cont_13 {
+	width: 169px;
+	height: 41px;
+}
+
+.cont_13 .cont_13_top {
+	width: 170px;
+	height: 14px;
+	padding-top: 1px;
+}
+
+.cont_13 .cont_13_top span {
+	display: block;
+	float: left;
+	height: 14px;
+	padding: 1px 6px 0px 6px;
+	color: #3c3c3c;
+	border-right: 1px solid #e1e1e1;
+}
+
+.cont_13_bottom {
+	clear: left;
+	margin-top: 14px;
+}
+
+.cont_13_bottom span {
+	color: #3c3c3c;
+}
+
+.cont_13_bottom .oborder {
+	color: #ececec;
+}
+
+.cont_13_bottom .red {
+	color: #ff4400;
+}
+
+#borderright {
+	border-right: 0px;
+	padding-right: 0px;
+}
+
+#paddingleft {
+	padding-left: 0px;
+}
+
+.cont_diff {
+	width: 157px;
+	height: 81px;
+	border: 1px solid #eeeeee;
+	margin-top: 13px;
+	background: url(../images/hot.png) no-repeat left top;
+	padding-top: 10px;
+	padding-left: 11px;
+	margin-bottom: 12px;
+}
+
+.cont_diff .diff_left {
+	width: 65px;
+	height: 58px;
+	padding-top: 12px;
+	float: left;
+	margin-right: 10px;
+}
+
+.diff_left h3 {
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #3c3c3c;
+	text-align: right;
+}
+
+.diff_left p {
+	height: 16px;
+	line-height: 16px;
+	font-size: 11px;
+	color: #6c6c6c;
+	text-align: right;
+}
+
+.diff_right {
+	width: 70px;
+	height: 70px;
+	float: left;
+}
+
+.contdiff {
+	border-right: 1px solid #e8e8e8;
+}
