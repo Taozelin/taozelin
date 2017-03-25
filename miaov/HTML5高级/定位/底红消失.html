@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>底红消失</title>
+	<style type="text/css">
+	    body,ul,li {
+	    	margin: 0;
+	    	padding: 0;
+	    	font-size: 12px;
+	    }
+
+	    a{
+	    	text-decoration: none;
+	    }
+
+	    ul {
+	    	list-style: none;
+	    }
+        
+        .clearfloat:after {
+        	content: "";
+        	display: block;
+        	clear: both;
+        	height: 0;
+        	overflow: hidden;
+        	visibility: hidden;
+        }
+
+        .clearfloat {
+        	zoom: 1;
+        }
+
+
+		#wrap {
+			width: 695px;
+			height: 498px;
+			background: #cba6bc;
+			margin: 100px auto;
+			padding-top: 106px;
+			padding-left: 105px;
+		}
+
+		.box1 {
+			width: 590px;
+			height: 170px;
+			background: #fff;
+			position: relative;
+			margin-bottom: 30px;
+		}
+
+		.box1 ul {
+			width: 543px;
+			height: 40px;
+			position: absolute;
+			left: 24px;
+			top: 65px;
+		}
+
+		.box1 ul li {
+			float: left;
+			width: 107px;
+			height: 38px;
+			
+			
+		}
+
+		.borderright {
+			border-right: 1px solid #e7788d;
+		}
+
+		.box1 ul li a:link,.box1 ul li a:visited {
+			display: block;
+			height: 38px;
+			line-height: 38px;
+			font-size: 15px;
+			text-align: center;
+			color: #e15671;
+			border-left: 1px solid #e7788d;
+			border-top: 1px solid #e7788d;
+			border-bottom: 1px solid #e7788d;
+			background: #fdf1f4;
+		}
+
+		.box1 ul li a:hover,.box1 ul li a:active {
+            border-bottom: 0px;
+            border-top: 2px solid #e7788d;
+            background: #fff;
+            color: #e7788d;
+		}
+
+		.box1 .no2_li li a:link,.box1 .no2_li li a:visited {
+			display: block;
+			height: 38px;
+			line-height: 38px;
+			font-size: 15px;
+			text-align: center;
+			color: #e15671;
+			border-left: 1px solid #e7788d;
+			border-top: 1px solid #e7788d;
+			border-bottom: 2px solid #e7788d;
+			background: #fdf1f4;
+		}
+
+		.box1 .no2_li li a:hover,.box1 .no2_li li a:active {
+            border-bottom: 0px;
+            border-top: 2px solid #e7788d;
+            border-left: 2px solid #e7788d;
+            border-right: 1px solid #e7788d;
+            background: #fff;
+            color: #e7788d;
+		}
+
+        .no2_li .bordermore {
+        	width: 108px;
+        	height: 41px;
+        	border-right: 1px solid #e7788d;
+        }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="box1">
+			<ul>
+				<li>
+					<a href="#">妙味</a>
+				</li>
+				<li>
+					<a href="#">欢迎你</a>
+				</li>
+				<li>
+					<a href="#">妙味课堂</a>
+				</li>
+				<li>
+					<a href="#">欢迎大家</a>
+				</li>
+				<li>
+					<a href="#"  class="borderright">miaov</a>
+				</li>
+			</ul>
+		</div>
+		<div class="box1">
+			<ul class="no2_li">
+				<li>
+					<a href="#">妙味</a>
+				</li>
+				<li>
+					<a href="#">欢迎你</a>
+				</li>
+				<li>
+					<a href="#">妙味课堂</a>
+				</li>
+				<li>
+					<a href="#">欢迎大家</a>
+				</li>
+				<li class="bordermore">
+					<a href="#">miaov</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

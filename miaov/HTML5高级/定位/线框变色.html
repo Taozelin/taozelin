@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>线框变色</title>
+</head>
+<style type="text/css">
+	body,ul,li {
+		margin: 0;
+		padding: 0;
+		font-size: 12px;
+	}
+
+	a{
+		text-decoration: none;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	#wrap {
+		width: 694px;
+		height: 724px;
+		background: #c0c4d3;
+		margin: 100px auto;
+		padding-left: 105px;
+		padding-top: 76px;
+	}
+
+	#wrap div {
+        width: 590px;
+        height: 170px;
+        background: #fff;
+        margin-top: 30px; 
+        position: relative;
+	}
+    
+
+	.box1 ul {
+		width: 542px;
+		position: absolute;
+		left: 24px;
+		top: 65px;
+		
+	}
+
+	.box1 ul li {
+		float: left;
+		border-left: 1px solid #e7788d;
+		border-top: 1px solid #e7788d;
+		border-bottom: 1px solid #e7788d;
+		width: 107px;
+		height: 38px;
+		background: #fdf1f4;
+	}
+
+	.box1 .no2_li li {
+		float: left;
+		border-left: 1px solid #e7788d;
+		border-top: 1px solid #e7788d;
+		border-bottom: 3px solid #e7788d;
+		width: 107px;
+		height: 38px;
+		background: #fdf1f4;
+	}
+    
+    .box1 ul li a:link,.box1 ul li a:visited {
+    	display: block;
+    	height: 38px;
+    	line-height: 38px;
+    	font-size: 15px;
+    	text-align: center;
+    	color:  #e15671;
+    }
+    
+    .box1 ul li a:hover,.box1 ul li a:active {
+    	color: #fdf1f4;
+    	background: #e7788d;
+    }
+
+    .borderright {
+    	border-right: 1px solid #e7788d;
+    }
+    
+    .box1 .no3_li li {
+    	float: left;
+    	border-left: 0;
+    	border-top: 0;
+    	border-right: 0;
+		border-bottom: 2px solid #e7788d;
+		width: 107px;
+		height: 38px;
+		background: #fff url(images/line.png) no-repeat right 10px;
+    }
+    
+    #noline {
+    	background: #fff
+    }
+
+	.clearfloat:after {
+		content: "";
+		display: block;
+		clear: both;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+
+	.clearfloat {
+		zoom: 1;
+	}
+
+</style>
+
+<body>
+	<div id="wrap">
+		<div class="box1">
+			<ul class="no1_li clearfloat">
+				<li>
+					<a href="#">妙味</a>
+				</li>
+				<li>
+					<a href="#">欢迎你</a>
+				</li>
+				<li>
+					<a href="#">妙味课堂</a>
+				</li>
+				<li>
+					<a href="#">欢迎大家</a>
+				</li>
+				<li class="borderright">
+					<a href="#">miaov</a>
+				</li>
+			</ul>
+		</div>
+		<div class="box1">
+			<ul class="no2_li clearfloat">
+				<li>
+					<a href="#">妙味</a>
+				</li>
+				<li>
+					<a href="#">欢迎你</a>
+				</li>
+				<li>
+					<a href="#">妙味课堂</a>
+				</li>
+				<li>
+					<a href="#">欢迎大家</a>
+				</li>
+				<li class="borderright">
+					<a href="#">miaov</a>
+				</li>
+			</ul>
+		</div>
+		<div class="box1">
+			<ul class="no3_li clearfloat">
+				<li>
+					<a href="#">妙味</a>
+				</li>
+				<li>
+					<a href="#">欢迎你</a>
+				</li>
+				<li>
+					<a href="#">妙味课堂</a>
+				</li>
+				<li>
+					<a href="#">欢迎大家</a>
+				</li>
+				<li class="borderright" id="noline">
+					<a href="#">miaov</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
