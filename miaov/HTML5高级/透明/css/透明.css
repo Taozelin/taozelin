@@ -1,0 +1,144 @@
+#wrap {
+	width: 572px;
+	height: 336px;
+	position: relative;
+	background: url(../images/bg.jpg);
+	margin: 100px auto;
+	padding-top: 106px;
+	padding-left: 105px;
+}
+
+/*--------------box_left------------------*/
+
+.box {
+	float: left;
+	width: 160px;
+	height: 210px;
+	background: #fff;
+	padding-left: 20px;
+	padding-top: 20px;
+	margin-right: 33px;
+}
+
+.box .top {
+	width: 140px;
+	height: 140px;
+	position: relative;
+	background: #48327f url(../images/logo.png) no-repeat 21px 21px;
+}
+
+.top .add {
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: url(../images/add.png);
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+
+.top .top_bottom {
+	width: 140px;
+	height: 24px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.top_bottom div {
+	background: #000;
+	height: 24px;
+	filter: alpha(opacity=40);
+	opacity: 0.4;
+}
+
+.top img {
+	width: 16px;
+	height: 16px;
+	background: url(../images/h.png);
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+}
+
+.top p {
+	position: absolute;
+	left: 8px;
+	top: 6px;
+	height: 13px;
+	line-height: 13px;
+	color: #d7d6db;
+}
+
+.bottom {
+	width: 140px;
+}
+
+.bottom h4 {
+	height: 33px;
+	line-height: 33px;
+	font-size: 13px;
+	font-weight: normal;
+	color: #3f3f3f;
+}
+
+.bottom p {
+	width: 140px;
+}
+
+.bottom p span {
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	font-size: 10px;
+	color: #7b7b7b;
+}
+
+.bottom p .pre {
+	float: left;
+	padding-left:15px;
+	background: url(../images/play.png) no-repeat left 3px; 
+}
+
+.bottom p .next {
+	float: right;
+	padding-left: 20px;
+	background: url(../images/talk.png) no-repeat left 3px;
+}
+
+/*--------------box_right--------------------*/
+
+#wrap .no_2 {
+	float: left;
+	width: 240px;
+	height: 210px;
+	background: #fff;
+	padding-left: 20px;
+	padding-top: 20px;
+	margin-right: 33px;
+}
+
+#wrap .no_2 .top {
+	width: 200px;
+	height: 140px;
+	position: relative;
+	background: #e7788d url(../images/logo2.png) no-repeat 60px 21px;
+}
+
+#wrap .no_2 .top .top_bottom {
+	width: 200px;
+	height: 24px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#wrap .no_2 .top_bottom div {
+	background: #fff;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+
+#wrap .no_2 .top p {
+	color: #231f20;
+}
