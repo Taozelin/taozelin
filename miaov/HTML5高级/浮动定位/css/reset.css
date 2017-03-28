@@ -1,0 +1,34 @@
+body,p,h1,h2,h3,h4,h5,h6,dl,dd,dt,ul,ol,hr {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+.clearfix:after {
+	content: "";
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+	height: 0px;
+	display: block;
+}
+
+.clearfix {
+	zoom: 1;
+}
