@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单美化</title>
+	<link rel="stylesheet" type="text/css" href="css/表单美化.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+</head>
+<body>
+	<div id="wrap">
+		<div class="box clearfloat">
+			<form action="">
+			    <div class="clearfloat">
+			    	<label for="name" class="labelhead">用户名：</label>
+			    	<input type="text" name="text" id="name">
+			    </div>
+			    <div class="clearfloat">
+			    	<label for="password" class="labelhead">密码：</label>
+			    	<input type="password" name="password" id="password" class="prompt">
+			    </div>
+			    <p>密码要8-12位数字或字母组合</p>
+			    <div class="clearfloat">
+			    	<label for="textarea" class="labelhead">留言：</label>
+			    	<textarea id="textarea">人生在于折腾</textarea>
+			    </div>
+			    <div class="clearfloat" id="box_4">
+			    	<label class="sex_a labelhead">性别：</label>
+			    	<input type="radio" name="sex" id="man" class="sex_m" checked="checked">
+			    	<label for="man" class="sex">男</label>
+			    	<input type="radio" name="sex" id="woman" class="sex_m">
+			    	<label for="woman" class="sex">女</label>
+			    </div>
+			    <div class="clearfloat" id="box_5">
+			    	<label class="hobby_a labelhead">爱好：</label>
+			    	<input type="button" name="playball" value="打球" class="btn">
+			    	<input type="button" name="sing" value="唱歌" >
+			    	<input type="button" name="sleep" value="睡觉">
+			    </div>
+			    <input type="button" name="submit" value="提交" id="submit">
+			</form>
+		</div>
+		
+	</div>
+</body>
+</html>

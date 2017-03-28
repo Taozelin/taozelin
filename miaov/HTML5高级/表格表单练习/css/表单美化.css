@@ -1,0 +1,130 @@
+#wrap {
+	width: 1479px;
+	height: 617px;
+	padding-top: 103px;
+	padding-left: 121px;
+	background: url(../images/bg.jpg);
+	margin: 100px auto;
+}
+
+.box {
+	width: 358px;
+	padding-top: 23px;
+	padding-left: 52px;
+	padding-bottom: 129px;
+	background: #fff url(../images/logo.png) no-repeat right bottom;
+	position: relative; /*为提交按钮定位*/
+}
+
+.box .labelhead {
+	font-size: 13px;
+	color: #bebebe;
+	float: left;
+	text-align: right;
+	display: block;
+	width: 52px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.box input {
+	float: left;
+	margin-left: 13px;
+	border: 1px solid #bebebe; 
+	width: 215px;
+	height: 38px;
+	font-size: 13px;
+	padding-left: 13px;
+}
+
+.box .prompt {
+	border: 1px solid #e7788d;
+}
+
+.box form div {
+	width: 295px;
+	margin-top: 20px;
+}
+
+.box form p {
+	float: left;
+	margin-left: 65px;
+	width: 213px;
+	height: 36px;
+	line-height: 36px;
+	background: #fdf1f3;
+	color: #e7788d;
+	margin-bottom: 20px;
+	padding-left: 17px;
+}
+
+.box form textarea {
+	width: 215px;
+	height: 65px;
+	border: 1px solid #c9c9c9;
+	float: left;
+	margin-left: 13px;
+	font-size: 13px;
+	padding-left: 13px;
+	padding-top: 13px;
+	padding-right: 0px;
+}
+
+#box_4 {
+	height: 20px;
+}
+
+#box_4 .sex {
+	float: left;
+	margin-left: 20px;
+	margin-right: 40px;
+}
+
+#box_4 .sex_a {
+	height: 20px;
+	line-height: 20px;
+}
+
+#box_4 .sex_m {
+	float: left;
+	margin-left: 13px; 
+	width: 20px;
+	height: 20px;
+	margin-top: 0px;
+	padding-left: 0;
+}
+
+#box_5 {
+	height: 32px;
+}
+
+#box_5 .hobby_a {
+	height: 32px;
+}
+
+#box_5 .btn {
+	margin-left: 13px;
+}
+
+#box_5 input{
+	float: left;
+	margin-left: 0px;
+	padding-left: 6px;
+	margin-right: 10px; 
+	width: 65px;
+    height: 32px;
+    text-align: center;
+}
+
+#submit {
+	width: 180px;
+	height: 44px;
+	font-size: 18px;
+	line-height: 44px;
+	background: #e7788d;
+	color: #fff;
+	position: absolute;
+	left: 117px;
+	bottom: 45px;
+}
+
