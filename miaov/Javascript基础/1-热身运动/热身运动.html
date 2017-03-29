@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>热身运动</title>
+	<style type="text/css">
+		body {
+			margin: 0px;
+			padding: 0px;
+			background-color: #efefef;
+		}
+        
+        #wrap {
+        	width: 500px;
+        	height: 550px;
+        	margin: 50px auto;
+        }
+        
+
+        #wrap h1 {
+        	width: 380px;
+        	margin: 0px;
+	    	padding: 0px;
+	    	float: left;
+        }
+        
+        #wrap input {
+        	width: 90px;
+        	height: 34px;
+        	background-color: red;
+        	color: #fff;
+        	font-weight: bold;
+        }
+
+        #box {
+        	width: 100px;
+        	height: 100px;
+        	border: 2px solid #000;
+        	background-color: #fff;
+        	margin-top: 20px;
+        	clear: left;
+        }
+
+        #all {
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	left: 0;
+        	top: 0;
+        	display: none;
+        }
+
+        #all .all_a {
+        	width: 100%;
+        	height: 100%;
+        	background-color: #000;
+        	filter: alpha(opacity=40);
+        	opacity: 0.4;
+        }
+
+        #all .all_b {
+        	position: absolute;
+        	left: 50px;
+        	top: 50px;
+        	border: 10px solid #000;
+        	background-color: #fff;
+        	padding: 20px;
+        }
+
+        #all label {
+        	color: #000;
+        	font-size: 26px;
+        }
+
+        #all input {
+        	width: 70px;
+        	height: 60px;
+        	font-size: 18px;
+        	border: 1px solid #c0c0c0;
+        	background-color: #efefef;
+        	color: #c0c0c0;
+        	font-weight: bold;
+        }
+
+        #all input:hover {
+        	border-color: #000;
+        	color: #000;
+        	background-color: #FEE46A;
+        }
+        
+        #all .red {
+        	background-color: #FEA2A2;
+        	color: #fff;
+        }
+
+        #all .yellow {
+        	background-color: #F4FF98;
+        	color: #fff;
+        }
+
+        #all .blue {
+        	background-color: #99B0FF;
+        	color: #fff;
+        }
+
+        #all .red:hover {
+        	background-color: red;
+        }
+
+        #all .yellow:hover {
+        	background-color: yellow;
+        }
+
+        #all .blue:hover {
+        	background-color: blue;
+        }
+
+        #all .all_b div {
+        	margin-bottom: 10px;
+        }
+        
+        #all .ibtn {
+        	padding-left: 30px;
+        	margin-top: 15px;
+        }
+
+        #all .ibtn input {
+        	width: 170px;
+        	background-color: #002952;
+        	color: #fff;
+        }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<h1>请为下面的DIV设置样式：</h1>
+		<input type="button" name="btn" value="点击设置" id="btn">
+		<div id="box"></div>
+	</div>
+	<div id="all">
+	    <div class="all_a"></div>
+	    <div class="all_b">
+	        
+	    	<form>
+	    	    <div class="bgcolor">
+	    	    	<label>请选择背景色：</label>
+	    	    	<input type="button" name="bgcolor" value="红" class="red">
+	    	    	<input type="button" name="bgcolor" value="黄" class="yellow">
+	    	    	<input type="button" name="bgcolor" value="蓝" class="blue">
+	    	    </div>
+	    	    <div class="iwidth">
+	    	    	<label>请选择宽(px)：</label>
+	    	    	<input type="button" name="width" value="200" >
+	    	    	<input type="button" name="width" value="300" >
+	    	    	<input type="button" name="width" value="400" >
+	    	    </div>
+	    	    <div class="iheight">
+	    	    	<label>请选择高(px)：</label>
+	    	    	<input type="button" name="height" value="200" >
+	    	    	<input type="button" name="height" value="300" >
+	    	    	<input type="button" name="height" value="400" >
+	    	    </div>
+	    	    <div class="ibtn">
+	    	    	<input type="button" name="reset" value="恢复" id="reset">
+	    	    	<input type="button" name="reset" value="确定" id="submit">
+	    	    </div>
+	    	</form>
+	    </div>
+	</div>
+	<script type="text/javascript">
+	    var box = document.getElementById('box')
+		var btn = document.getElementById('btn');
+		var all = document.getElementById('all');
+		var res = document.getElementById('reset');
+		var sub = document.getElementById('submit');
+		var inp = all.getElementsByTagName('input');
+		
+		btn.onclick = function() {
+            all.style.display = "block";
+		}
+
+        sub.onclick = function () {
+        	all.style.display = "none";
+        }
+
+        res.onclick = function () {
+        	box.style.width = "100px";
+        	box.style.height = "100px";
+        	box.style.backgroundColor = "#fff";
+        }
+
+        inp[0].onclick = function() {
+            box.style.backgroundColor = "red";
+        }
+
+        inp[1].onclick = function() {
+            box.style.backgroundColor = "yellow";
+        }
+
+        inp[2].onclick = function() {
+            box.style.backgroundColor = "blue";
+        }
+
+        inp[3].onclick = function() {
+            box.style.width = "200px";
+        }
+
+        inp[4].onclick = function() {
+            box.style.width = "300px";
+        }
+
+        inp[5].onclick = function() {
+            box.style.width = "400px";
+        }
+
+        inp[6].onclick = function() {
+            box.style.height = "200px";
+        }
+
+        inp[7].onclick = function() {
+            box.style.height = "300px";
+        }
+
+        inp[8].onclick = function() {
+            box.style.height = "400px";
+        }
+	</script>
+</body>
+</html>
