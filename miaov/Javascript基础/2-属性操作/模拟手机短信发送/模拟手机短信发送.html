@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟手机短信发送</title>
+	<style type="text/css">
+	    body,p {
+	    	padding: 0px;
+	    	margin: 0px;
+	    }
+		#box {
+			width: 270px;
+			height: 650px;
+			margin: 50px auto;
+			border: 4px solid #FE5454;
+		}
+
+		#main {
+			height: 604px;
+			border: 3px solid #000;
+			overflow: auto;
+			padding: 5px;
+		}
+
+        .bottom {
+        	height: 30px;
+        	padding: 3px;
+        }
+
+        .bottom label {
+        	display: block;
+        	width: 24px;
+        	height: 24px;
+        	float: left;
+        	margin-right: 10px;
+        	border: 1px solid #f0f0f0;
+        }
+
+        #position_Abs {
+        	position: absolute;
+        	left: 0;
+        	top: 0;
+        }
+        
+        #position_Abs_2 {
+        	position: absolute;
+        	right: 0;
+        	top: 0;
+        }
+
+        .position_rel {
+        	position: relative;
+        	margin-bottom: 8px;
+        }
+
+        .margin_p {
+        	margin-left: 35px;
+        }
+        
+        .margin_p_2 {
+            margin-right: 35px;
+        }
+
+        .style_1 {
+        	background-color: #21c618;
+        	color: #fff;
+        	padding: 8px;
+        	font-weight: bold;
+        	float: left;        }
+
+        .float_right {
+        	float: right;
+        	margin-left: 10px;
+        }
+
+        .style_2 {
+        	float: right;
+        	background-color: #ded6e7;
+        	color: #102131;
+        	padding: 8px;
+        	font-weight: bold;
+        }
+        .clearfix:after {
+        	content: "";
+        	height: 0;
+        	overflow: hidden;
+        	visibility: hidden;
+        	clear: both;
+        	display: block;
+        }
+
+        .clearfix {
+        	zoom: 1;
+        }
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="main"></div>
+		<div class="bottom">
+			<form action="">
+				<label>
+				    <img  id="face" src="images/cool.png">
+				</label>
+				<input type="text" name="text" id="text">
+				<input type="button" name="submit" value="提交" id="submit">
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var box = document.getElementById('main');
+		var face = document.getElementById('face');
+		var sub = document.getElementById('submit');
+		var txt = document.getElementById('text');
+        var imgname = 1;
+		face.onclick = function() {
+            if (imgname == 1) {
+            	face.src = "images/solider.png";
+            	imgname = 2;
+            }else {
+            	face.src = "images/cool.png";
+            	imgname = 1;
+            }
+		}
+		sub.onclick = function() {
+			if (imgname == 1) {
+				box.innerHTML += "<div class='clearfix position_rel'><img src='images/cool.png' id='position_Abs'><div class='margin_p clearfix'><p class='style_1'>"+ txt.value +"</p></div>"
+				txt.value = '';
+			}else {
+				box.innerHTML += "<div class='clearfix position_rel'><div class='margin_p_2 clearfix'><p class='style_2'>" + txt.value + "</p></div><img src='images/solider.png' id='position_Abs_2'></div>"
+				txt.value = '';
+			}
+			
+		}
+	</script>
+</body>
+</html>
