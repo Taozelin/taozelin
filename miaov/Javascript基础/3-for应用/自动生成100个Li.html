@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动生成100个Li</title>
+	<style type="text/css">
+		li {
+			width: 40px;
+			height: 40px;
+			border: 1px solid #000;
+			position: absolute;
+			list-style: none;
+			font-size: 32px;
+			font-weight: bold;
+			line-height: 40px;
+			color: #000;
+			text-align: center;
+		}
+		ul {
+			position: relative;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var btn = document.getElementById("btn");
+			var aLi = document.getElementsByTagName("li");
+			var str = "";
+			var onOff = true;
+			var num = 0;
+			var l = 0;
+			var n = 0;
+			btn.onclick = function() {
+				if (onOff) {
+					for(var i=0;i<100;i++){
+						if (i%10==0) {
+							t = i*5;
+						}
+						l=n*50;
+						n++;
+						if (n==10) {
+							n = 0;
+						}
+					    str += "<li style='left:"+l+"px;top:"+t+"px'>"+ i +"</li>"	
+					}
+					 document.getElementsByTagName("ul")[0].innerHTML = str;
+					 onOff = false;
+					 for(var i=0;i<aLi.length;i++){
+					 	aLi[i].id = num;
+					 	if (num==0) {
+					 		aLi[i].style.backgroundColor = "red";
+					 		num++
+					 	}else if (num==1) {
+					 		aLi[i].style.backgroundColor = "yellow";
+					 		num++;
+					 	}else if (num==2) {
+					 		aLi[i].style.backgroundColor = "blue";
+					 		num++;
+					 	}else {
+					 		aLi[i].style.backgroundColor = "green";
+					 		num = 0;
+					 	}
+					 }
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="btn" value="自动生成100个Li" id="btn">
+	<ul></ul>
+</body>
+</html>

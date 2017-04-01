@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动展示</title>
+	<style type="text/css">
+		h2 {
+			width: 514px;
+			font-size: 12px;
+			height: 26px;
+			line-height: 26px;
+			border-bottom: 1px solid #9c9c9c;
+			font-family: "微软雅黑";
+			font-weight: normal;
+			margin-top: 80px;
+		}
+
+		ul {
+			list-style: none;
+			width: 510px;
+			height: 190px;
+			padding-left: 19px; 
+			padding-top: 13px;
+		}
+        
+        li {
+        	float: left;
+        	margin-right: 29px;
+			width: 56px;
+			height: 83px;
+			margin-bottom: 7px;
+			position: relative;
+        }
+
+        div {
+        	width: 229px;
+        	height: 142px;
+        	position: absolute;
+        	top: -130px;
+        	right: -190px;
+        	background: url(images/show.png) no-repeat left top;
+        	display: none;
+        }
+		.li_1 {
+			background: url(images/cont.jpg) no-repeat 0px 0px;
+		}
+		.li_2 {
+			background: url(images/cont.jpg) no-repeat -85px 0px;
+		}
+		.li_3 {
+			background: url(images/cont.jpg) no-repeat -170px 0px;
+		}
+		.li_4 {
+			background: url(images/cont.jpg) no-repeat -255px 0px;
+		}
+		.li_5 {
+			background: url(images/cont.jpg) no-repeat -340px 0px;
+		}
+		.li_6 {
+			background: url(images/cont.jpg) no-repeat -425px 0px;
+		}
+		.li_7 {
+			background: url(images/cont.jpg) no-repeat 0px -90px;
+		}
+		.li_8 {
+			background: url(images/cont.jpg) no-repeat -85px -90px;
+		}
+		.li_9 {
+			background: url(images/cont.jpg) no-repeat -170px -90px;
+		}
+		.li_10 {
+			background: url(images/cont.jpg) no-repeat -255px -90px;
+		}
+		.li_11 {
+			background: url(images/cont.jpg) no-repeat -340px -90px;
+		}
+		.li_12 {
+			background: url(images/cont.jpg) no-repeat -425px -90px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		var aLi = document.getElementsByTagName("li");
+		for(var i=0;i<aLi.length;i++){
+				aLi[i].onmouseover = function() {
+				    this.getElementsByTagName("div")[0].style.display = "block";
+				    this.style.zIndex = "99";
+			    }
+			    aLi[i].onmouseout = function() {
+				    this.getElementsByTagName("div")[0].style.display = "none";
+				    this.style.zIndex = "1";
+			    }
+		}
+		
+	}
+		
+	</script>
+</head>
+<body>
+	<h2>最新上线</h2>
+	<ul>
+		<li class="li_1">
+			<div></div>
+		</li>
+		<li class="li_2">
+			<div></div>
+		</li>
+		<li class="li_3">
+			<div></div>
+		</li>
+		<li class="li_4">
+			<div></div>
+		</li>
+		<li class="li_5">
+			<div></div>
+		</li>
+		<li class="li_6">
+			<div></div>
+		</li>
+		<li class="li_7">
+			<div></div>
+		</li>
+		<li class="li_8">
+			<div></div>
+		</li>
+		<li class="li_9">
+			<div></div>
+		</li>
+		<li class="li_10">
+			<div></div>
+		</li>
+		<li class="li_11">
+			<div></div>
+		</li>
+		<li class="li_12">
+			<div></div>
+		</li>
+	</ul>
+	
+</body>
+</html>
