@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟QQ列表</title>
+	<style type="text/css">
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+        
+        #main {
+        	width: 200px;
+        	border: 1px solid #ccc;
+        }
+
+        h2 {
+        	width: 200px;
+        	background-color: red;
+        	padding: 0;
+        	margin: 0;
+        }
+        
+        .active {
+        	background-color:  #00FF04;
+        }
+
+        #main ul li {
+        	border: 1px solid #C9C9C9;
+        }
+
+        #main ul {
+        	display: none;
+        }
+
+	</style>
+	<script type="text/javascript">
+		window.onclick = function() {
+			var aH2 = document.getElementsByTagName("h2");
+			var main = document.getElementById("main");
+			var aUl = main.getElementsByTagName("ul");
+			for(var i=0;i<aH2.length;i++){
+				aH2[i].index = i;
+
+				aH2[i].onclick = function() {
+                    
+					if (this.className == "") {
+						for(var i=0;i<aH2.length;i++){
+                    		aUl[i].style.display = "none";
+                    		aH2[i].className = "";
+                    	}
+						aUl[this.index].style.display = "block";
+						this.className = "active";	
+					}else {
+						aUl[this.index].style.display = "none";
+						this.className = "";
+						
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="main">
+		<li>
+			<h2>小学同学</h2>
+			<ul>
+				<li>陈小数</li>
+				<li>何大秋</li>
+				<li>黄贱</li>
+			</ul>
+		</li>
+		<li>
+			<h2>初中同学</h2>
+			<ul>
+				<li>小白</li>
+				<li>彭小柒</li>
+				<li>谢风</li>
+			</ul>
+		</li>
+		<li>
+			<h2>高中同学</h2>
+			<ul>
+				<li>谷歌</li>
+				<li>徐姐</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带缩略图的图片轮换</title>
+	<style type="text/css">
+		#main {
+			width: 400px;
+			height: 300px;
+			margin: 0 auto;
+			border: 1px solid #000;
+			position: relative;
+			background: url(images/1.jpg) no-repeat left top;
+		}
+
+		a {
+			text-decoration: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			line-height: 40px;
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			text-align: center;
+			background: #FEAC08;
+			position: absolute;
+			top: 130px;
+        	filter:alpha(opacity=40);
+        	opacity: 0.4;
+		}
+
+        a:hover {
+        	filter:alpha(opacity=90);
+        	opacity: 0.9;
+        }
+
+		#prev {
+			left: 30px;
+		}
+
+		#next {
+			right: 30px;
+		}
+
+		ul {
+			margin: 15px auto;
+			width: 237.5px;
+			height: 10px;
+			list-style: none;
+			padding-left: 162.5px;
+		}
+
+		ul li {
+			float: left;
+			margin-right: 5px;
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			background: #8D8D8D;
+			cursor: pointer;
+			position: relative;
+		}
+        
+        .active {
+        	background: #FFDF02;
+        }
+
+		ul li img {
+			width: 100px;
+			height: 75px;
+			position: absolute;
+			left: -30px;
+			top: 15px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var aPrev = document.getElementById("prev");
+			var aNext = document.getElementById("next");
+			var main = document.getElementById("main");
+			var aLi = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+
+			var num = 1;
+			aNext.onclick = function() {
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className = "";
+				}
+				if (num > 4) {
+					num = 0;
+				}
+				num++;
+				main.style.backgroundImage = "url(images/"+num+".jpg)";
+				aLi[num-1].className = "active";
+			}
+			aPrev.onclick = function() {
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className = "";
+				}
+				if (num < 2) {
+					num = 6;
+				}
+				num--;
+				main.style.backgroundImage = "url(images/"+num+".jpg)";
+				aLi[num-1].className = "active";
+			}
+			
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index = i+1;
+				aLi[i].onmouseover = function() {
+					this.getElementsByTagName("img")[0].style.display = "block";
+				}
+				aLi[i].onmouseout = function() {
+					this.getElementsByTagName("img")[0].style.display = "none";
+				}
+				aLi[i].onclick = function() {
+					main.style.backgroundImage = "url(images/"+this.index+".jpg)";
+                    for(var i=0;i<aLi.length;i++){
+                    	aLi[i].className = "";
+                    }
+					this.className = "active";
+					num = this.index; //关键！ 联系底部的li 和 图片
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<a href="javascript:;" id="prev"><</a>
+		<a href="javascript:;" id="next">></a>
+	</div>
+	<ul>
+		<li class="active">
+			<img src="images/1.jpg">
+		</li>
+		<li>
+			<img src="images/2.jpg">
+		</li>
+		<li>
+			<img src="images/3.jpg">
+		</li>
+		<li>
+			<img src="images/4.jpg">
+		</li>
+		<li>
+			<img src="images/5.jpg">
+		</li>
+	</ul>
+</body>
+</html>
