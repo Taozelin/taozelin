@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择卡里套选择卡</title>
+	<style type="text/css">
+
+        ul,li {
+        	margin: 0px;
+        	padding: 0px;
+        	list-style: none;
+        }
+
+		#main {
+			width: 800px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 0 auto;
+		}
+
+		.list {
+			list-style: none;
+			width: 200px;
+			height: 400px;
+			float: left;
+		}
+
+		.list li {
+			width: 198px;
+			height: 99px;
+			line-height: 99px;
+			font-size: 35px;
+			color: #fff;
+			text-align: center;
+			border-top: 1px solid #000;
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+            background: #8A8A8A;
+		}
+
+		.list .borderright {
+			border-right: none;
+			background: #fff;
+			color: #000;
+		}
+
+		.borderbottom {
+			border-bottom: 1px solid #000;
+		}
+
+        .show {
+        	width: 600px;
+        	height: 400px;
+        	overflow: hidden;
+        }
+
+        .show div {
+        	width: 600px;
+        	height: 400px;
+        	position: relative;
+        } 
+
+        .show div ul {
+        	position: absolute;
+        	left: 0px;
+        	bottom: 0px;
+        	width: 600px;
+        	height: 30px;
+        }
+
+        .show div li {
+        	height: 30px;
+            line-height: 30px;
+            font-size: 26px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+            filter: alpha(opacity=30);
+            opacity: 0.3;
+            float: left;
+            margin: 0 1px;
+        }
+        
+        .show div li:hover {
+        	filter: alpha(opacity=70);
+        	opacity: 0.7;
+        }
+
+        .ul_1 li {
+            width: 198px;
+        }
+
+        .ul_2 li {
+            width: 147px;
+        }
+
+        .ul_3 li {
+            width: 116px;
+        }
+
+        .ul_4 li {
+            width: 198px;
+        }
+
+        .show_1 {
+        	background: url(images/1.jpg);
+        }
+
+        .show_2 {
+        	background: url(images/4.jpg);
+        }
+
+        .show_3 {
+        	background: url(images/8.jpg);
+        }
+
+        .show_4 {
+        	background: url(images/13.jpg);
+        }
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var main = document.getElementById("main");
+			var show = main.getElementsByTagName("div")[0];
+			var aDiv = show.getElementsByTagName("div");
+			var showPic = show.getElementsByTagName("div");
+			var oUl = main.getElementsByTagName("ul")[0];
+			var aList = oUl.getElementsByTagName("li");//名字没取好的后果就是看晕了.....
+			
+            fn1(aDiv[0],showPic[0],1);
+            fn1(aDiv[1],showPic[1],4);
+            fn1(aDiv[2],showPic[2],8);
+            fn1(aDiv[3],showPic[3],13);
+
+			function fn1(a,b,c){
+				var aLi = a.getElementsByTagName("li");
+				for(var j=0;j<aLi.length;j++){
+					aLi[j].index = j+c;
+					aLi[j].onmouseover = function(){
+						b.style.background = "url(images/"+this.index+".jpg)";
+					}
+				}
+			}//控制右边内部选项卡的切换，封装成函数，重用
+			
+			for(var i=0;i<aList.length;i++){
+				aList[i].id = i;
+				aList[i].onclick = function() {
+					for(var i=0;i<aList.length;i++){
+						aList[i].className = "";
+						showPic[i].style.display = "none";
+					}
+                    this.className = "borderright";
+                    showPic[this.id].style.display = "block";
+				}
+			}//控制左边选项卡的切换
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<ul class="list">
+			<li class="borderright">A</li>
+			<li>B</li>
+			<li>C</li>
+			<li class="borderbottom">D</li>
+		</ul>
+		<div class="show">
+			<div class="show_1">
+				<ul class="ul_1">
+					<li>A</li>
+					<li>B</li>
+					<li>C</li>
+				</ul>
+			</div>
+			<div class="show_2">
+				<ul class="ul_2">
+					<li>D</li>
+					<li>E</li>
+					<li>F</li>
+					<li>G</li>
+				</ul>
+			</div>
+			<div class="show_3">
+				<ul class="ul_3">
+					<li>H</li>
+					<li>I</li>
+					<li>J</li>
+					<li>K</li>
+					<li>L</li>
+				</ul>
+			</div>
+			<div class="show_4">
+				<ul class="ul_4">
+					<li>M</li>
+					<li>N</li>
+					<li>O</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

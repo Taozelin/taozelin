@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜狐视频列表展示</title>
+	<style type="text/css">
+
+	    ol, li, h2, p {
+	    	margin: 0px;
+	    	padding: 0px;
+	    }
+
+		#main {
+			width: 262px;
+			height: 396px;
+			border: 1px solid #000;
+			background: #dee7e7;
+			margin: 0 auto;
+			padding-left: 6px;
+			position: relative;
+		}
+
+		h2 {
+			width: 241px;
+			height: 37px;
+			font-size: 17px;
+			line-height: 37px;
+			padding-left: 14px;
+			color: #103142;
+			border-bottom: 1px solid #94bdd6;
+		}
+
+		ol {
+			list-style: none;
+			width: 255px;
+			padding-top: 2px;
+		}
+        
+        ol li {
+        	border-bottom: 1px dashed #fff;
+        	height: 25px;
+        	padding-left: 37px;
+        	margin-bottom: 2px;
+        }
+
+        .li_1 {
+        	background: url(images/1_03.jpg) no-repeat 8px 6px;
+        }
+
+        .li_2 {
+        	background: url(images/1_06.jpg) no-repeat 8px 6px;
+        }
+
+        .li_3 {
+        	background: url(images/1_08.jpg) no-repeat 8px 6px;
+        }
+
+        .li_4 {
+        	background: url(images/1_10.jpg) no-repeat 8px 6px;
+        }
+
+        .li_5 {
+        	background: url(images/1_12.jpg) no-repeat 8px 6px;
+        }
+
+        .li_6 {
+        	background: url(images/1_14.jpg) no-repeat 8px 6px;
+        }
+
+        .li_7 {
+        	background: url(images/1_16.jpg) no-repeat 8px 6px;
+        }
+
+        .li_8 {
+        	background: url(images/1_18.jpg) no-repeat 8px 6px;
+        }
+
+        .li_9 {
+        	background: url(images/1_20.jpg) no-repeat 8px 6px;
+        }
+
+        .li_10 {
+        	background: url(images/1_22.jpg) no-repeat 8px 6px;
+        }
+
+		ol li p {
+			height: 25px;
+			font-size: 11px;
+			line-height: 25px;
+			color: #393131;
+		}
+
+		span {
+			width: 40px;
+			height: 25px;
+			line-height: 25px;
+			font-size: 11px;
+			color: #393131;
+			position: absolute;
+			right: 7px;
+			bottom: 1px;
+		}
+
+		li div {
+			width: 213px;
+			height: 66px;
+			overflow: hidden;
+			position: relative;
+			display: none;
+		}
+
+		li div img {
+			width: 84px;
+			height: 64px;
+			border: 1px solid #dee7e7;
+		}
+
+		li div input {
+			position: absolute;
+			top: 9px;
+			right: 0px;
+			width: 41px;
+			height: 21px;
+			border-radius: 2px;
+			color: #fff;
+			background: #29739c;
+			border: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+		    var main = document.getElementById("main");
+		    var aLi = main.getElementsByTagName("li");
+		    for(var i=0;i<aLi.length;i++){
+		    	
+		    	aLi[i].onmouseover = function(){
+		    		var aDiv = this.getElementsByTagName("div")[0];
+		    		var aP = this.getElementsByTagName("p")[0];
+		    		for(var i=0;i<aLi.length;i++){
+		    			aLi[i].style.height = "25px";
+		    			aLi[i].getElementsByTagName("div")[0].style.display = "none";
+		    			aLi[i].getElementsByTagName("p")[0].style.display = "block";
+		    			aLi[i].style.backgroundColor = "";
+		    		}
+		    		aP.style.display = "none";
+                    aDiv.style.display = "block";
+                    this.style.backgroundColor = "#fff";
+                    this.style.height = "80px";
+		    	}
+		    	
+		    }
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<h2>观看排行榜</h2>
+		<ol>
+			<li class="li_1">
+			    <p>揭秘：关于地球与人类的一千零一问</p>
+			    <div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_2">
+				<p>经典传奇：探索全世界重大历史事件..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_3">
+				<p>眼界：展现普通人的曲折命运和动人..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_4">
+				<p>档案（BTV）：惊人事件和传奇背..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_5">
+				<p>世纪十最：30个震惊世界的Top..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_6">
+				<p>身边的毛泽东：警卫员解密毛泽东秘..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_7">
+				<p>新电影传奇：每一步电影都有自己的..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_8">
+				<p>档案（上视纪实频道）：解密档案中..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_9">
+				<p>探寻传世国宝的千古传奇</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+			<li class="li_10">
+				<p>纪实系列：讲述社会百态，透视事实..</p>
+				<div>
+			    	<img src="images/pic.jpg">
+			    	<input type="button" name="btn" value="播放">
+			    </div>
+			</li>
+		</ol>
+		<span>更多>></span>
+	</div>
+</body>
+</html>

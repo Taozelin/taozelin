@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改文本框的值</title>
+	<style type="text/css">
+	    h2,ul,li,p {
+	    	padding: 0px;
+	    	margin: 0px;
+	    }
+	    #main {
+	    	width: 569px;
+	    	margin: 0 auto;
+	    }
+		#main h2 {
+			font-size: 13px;
+			height: 28px;
+			line-height: 28px;
+			border-bottom: 1px solid #bddede;
+			background: #6ba542;
+			color: #fff;
+			padding-left: 25px;
+		}
+		ul {
+			list-style: none;
+		}
+		ul li {
+			height: 39px;
+			font-size: 12px;
+			line-height: 39px;
+			padding-left: 25px;
+			color: #293129;
+			overflow: hidden;
+			border-bottom: 1px solid #bddede;
+		}
+		span {
+			margin-right: 10px;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="main">
+		<h2>分类名称</h2>
+		<ul>
+			<li>
+			    <p>
+			        <span>我是阿涛吖</span>
+			    	<img src="images/pen.png">
+			    </p>
+				
+				<div>
+					<input type="text" name="text" >
+					<input type="button" name="btn" value="保存" >
+					<input type="button" name="btn" value="取消" >
+				</div>
+			</li>
+			<li>
+			    <p>
+			        <span>我是阿涛吖</span>
+			    	<img src="images/pen.png">
+			    </p>
+				
+				<div>
+					<input type="text" name="text" >
+					<input type="button" name="btn" value="保存" >
+					<input type="button" name="btn" value="取消" >
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var main = document.getElementById("main");
+		var aLi = main.getElementsByTagName("li");
+		for(var i=0;i<aLi.length;i++){
+			fn1(aLi[i]);
+		}
+		
+		function fn1(li){
+			var aImg = li.getElementsByTagName("img")[0];
+			var aP = li.getElementsByTagName("p")[0];
+			var aSpan = li.getElementsByTagName("span")[0];
+			var oYes = li.getElementsByTagName("input")[1];
+			var oNo = li.getElementsByTagName("input")[2];
+			var oText = li.getElementsByTagName("input")[0];
+			aImg.onclick = function() {
+				aP.style.display = "none";
+			}
+            oYes.onclick = function() {
+            	aSpan.innerHTML = oText.value;
+            	aP.style.display = "block";
+            	oText.value = "";
+            }
+            oNo.onclick = function() {
+            	oText.value = "";
+            	aP.style.display = "block";
+            }
+		}
+		//函数重用
+	</script>
+</body>
+</html>
