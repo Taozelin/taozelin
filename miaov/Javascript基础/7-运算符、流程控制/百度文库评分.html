@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度文库评分</title>
+	<style type="text/css">
+		#main {
+            width: 480px;
+            height: 40px;
+            line-height: 40px;
+		}
+        
+
+        strong {
+        	float: left;
+        }
+
+		span {
+			display: block;
+			float: left;
+			width: 22px;
+			height: 24px;
+			background: url(images/star.png) no-repeat left top;
+		}
+
+		em {
+			float: left;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+        
+        #eva {
+        	color: #FF6868;
+        }
+
+		#tip {
+			
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var main = document.getElementById("main");
+			var aSpan = main.getElementsByTagName("span");
+			var eva = document.getElementById("eva");
+			var evaText = ["很差","一般","还行","不错","推荐"];
+			var onOff = true;
+			for(var i=0;i<aSpan.length;i++){
+				aSpan[i].index = i;
+				aSpan[i].onmouseover = function() {
+					for(var i=0;i<aSpan.length;i++){
+						aSpan[i].style.background = "url(images/star.png)";
+					}//先使所有的星星重置
+					for(var i=0;i<this.index+1;i++){
+						/*if (this.index<2) {
+							aSpan[i].style.background = "url(images/garystar.png)";
+							
+						}else{
+							aSpan[i].style.background = "url(images/redstar.png)";
+						}
+                        */
+						aSpan[i].style.background = this.index<2 ? "url(images/garystar.png)" : "url(images/redstar.png)";
+						eva.innerHTML = evaText[i];
+					}	
+				}
+				aSpan[i].onmouseout = function() {
+					if (onOff) {
+						for(var i=0;i<aSpan.length;i++){
+						    aSpan[i].style.background = "url(images/star.png)";
+						    eva.innerHTML = "";
+					    }
+					} else {
+						for(var i=0;i<aSpan.length;i++){
+						    aSpan[i].style.background = "url(images/star.png)";
+					    }
+						for(var i=0;i<num;i++){
+							aSpan[i].style.background = num<3 ? "url(images/garystar.png)" : "url(images/redstar.png)";
+							eva.innerHTML = evaText[i];
+						}
+					}
+				}
+				aSpan[i].onclick = function() {
+					for(var i=0;i<aSpan.length;i++){
+						aSpan[i].style.background = "url(images/star.png)";
+					}
+					for(var i=0;i<this.index+1;i++){
+						aSpan[i].style.background = this.index<2 ? "url(images/garystar.png)" : "url(images/redstar.png)";
+						eva.innerHTML = evaText[i];
+                        onOff = false;
+                        num = this.index+1;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<strong>总体评价：</strong>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<em id="eva"></em>
+		<em id="tip">小提示：点击星星就能打分</em>
+	</div>
+</body>
+</html>
