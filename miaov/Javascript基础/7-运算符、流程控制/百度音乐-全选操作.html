@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度音乐-全选操作</title>
+	<style type="text/css">
+
+        body {
+        	font-size: 12px;
+        	font-family: "微软雅黑";
+        }
+
+	    ul ,li,p {
+	    	margin: 0px;
+	    	padding: 0px;
+	    }
+		#main {
+			width: 312px;
+			height: 215px;
+			margin: 0 auto;
+		}
+
+		ul {
+			list-style: none;
+			width: 312px;
+			height: 180px;
+			border-bottom: 1px solid #dedede;
+		}
+
+		ul li {
+			width: 295px;
+			height: 22px;
+			padding-top: 8px;
+			padding-left: 17px;
+		}
+
+		ul li input {
+			float: left;
+		}
+
+		ul li p {
+			padding-left: 15px;
+			padding-top: 1px;
+			width: 163px;
+			height: 12px;
+			float: left;
+		}
+
+		ul li span {
+			float: left;
+		}
+
+		.bottom {
+			width: 295px;
+			height: 28px;
+			border-bottom: 2px solid #4a4a4a;
+			padding-top: 5px;
+			padding-left: 17px;
+		}
+
+		.bottom .allcheck,.bottom p{
+			margin-top: 6px;
+			float: left;
+		}
+
+        .bottom p {
+        	width: 44px;
+        	height: 12px;
+        	padding-top: 1px;
+        	padding-left: 15px;
+        	
+        }
+        
+        .bottom div {
+        	float: left;
+        	width: 215px;
+        	height: 25px;
+        }
+
+		.bottom div input {
+			width: 63px;
+			height: 23px;
+			padding-left: 30px;
+			border: 1px solid #efefef;
+			cursor:default;
+		}
+
+		.bottom .input_1 {
+			background: url(images/heart-1.png) no-repeat 9px 6px;
+		}
+
+		.bottom .input_2 {
+			background: url(images/plus-1.png) no-repeat 9px 6px;
+		}
+
+		.bottom .input_3 {
+			background: url(images/X-1.png) no-repeat 9px 6px;
+		}
+		
+		
+
+		.clearfix:after {
+			content: "";
+			overflow: hidden;
+			height: 0;
+			clear: both;
+			display: block;
+			visibility: hidden;
+		}
+
+		.clearfix {
+			zoom:1;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var main = document.getElementById("main");
+			var aLi = main.getElementsByTagName("li");
+			var allcheck = document.getElementById("allcheck");
+			var checkBox = main.getElementsByTagName("input");
+			var oBtn = document.getElementById("btn");
+			var aBtn = oBtn.getElementsByTagName("input");
+			var color = ["#f7ffff","#ffffff"];
+			var onOff = true;
+			var num = 0;
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index = i;
+				aLi[i].style.background = color[i%color.length];
+				aLi[i].onmouseover = function() {
+					this.style.background = "#efefef";
+				}
+				aLi[i].onmouseout = function() {
+					this.style.background = color[this.index%color.length];
+					if (checkBox[this.index].checked) {
+						this.style.background = "#efefef";
+					}
+				}
+				checkBox[i].onclick = function() {
+					this.parentNode.style.background = "#efefef";
+					if (this.checked) {
+						num++;
+					}else {
+						num--;
+					}
+
+					if (num == checkBox.length) {
+					    allcheck.checked = true;
+					}else{
+						allcheck.checked = false;
+						onOff = true;
+					}
+
+					if (num>0) {
+						for(var i=0;i<aBtn.length;i++){
+							aBtn[i].disabled = "";
+						}
+					}else {
+						for(var i=0;i<aBtn.length;i++){
+							aBtn[i].disabled = "disabled";
+						}
+					}
+				}
+			}
+			allcheck.onclick = function(){
+				if(onOff){
+					for(var i=0;i<checkBox.length;i++){
+						checkBox[i].checked = true;
+					}
+					for(var i=0;i<aLi.length;i++){
+						aLi[i].style.background = "#efefef";
+					}
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].disabled = "";
+					}
+					onOff = false;
+					num = checkBox.length;
+				}else {
+					for(var i=0;i<checkBox.length;i++){
+						checkBox[i].checked = false;
+					}
+                    for(var i=0;i<aLi.length;i++){
+						aLi[i].style.background = color[i%color.length];
+					}
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].disabled = "disabled";
+					}
+					onOff = true;
+					num = 0;
+				}
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<ul>
+			<li class="clearfix">
+				<input type="checkbox" >
+				<p>私奔</p>
+				<span>梁博</span>
+			</li>
+			<li class="clearfix">
+				<input type="checkbox" >
+				<p>北京北京</p>
+				<span>梁博,黄勇</span>
+			</li>
+			<li class="clearfix">
+				<input type="checkbox" >
+				<p>我爱你中国</p>
+				<span>梁博</span>
+			</li>
+			<li class="clearfix">
+				<input type="checkbox" >
+				<p>花火</p>
+				<span>梁博</span>
+			</li>
+			<li class="clearfix">
+				<input type="checkbox" >
+				<p>回来</p>
+				<span>梁博</span>
+			</li>
+			<li class="clearfix">
+				<input type="checkbox" >
+				<p>爱要有你才完美</p>
+				<span>梁博,那英</span>
+			</li>
+		</ul>
+		<div class="bottom" >
+			<input type="checkbox" class="allcheck" id="allcheck">
+			<p>全选</p>
+			<div id="btn">
+				<input type="button" name="col" value="收藏" class="input_1" disabled="disabled" >
+				<input type="button" name="add" value="添加" class="input_2" disabled="disabled" >
+				<input type="button" name="del" value="删除" class="input_3" disabled="disabled" >
+			</div>
+		</div>
+	</div>
+</body>
+</html>
