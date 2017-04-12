@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮控制商品图片上下滚动</title>
+	<style type="text/css">
+        body {
+        	font-family: "微软雅黑";
+        }
+
+	    h2,p,ul,li,h4 {
+	    	margin: 0px;
+	    	padding: 0px;
+	    }
+
+	    ul {
+	    	list-style: none;
+	    }
+
+		#main {
+			width: 211px;
+			height: 566px;
+			margin: 0 auto;
+		}
+
+		#main h2 {
+			width: 199px;
+			height: 26px;
+			line-height: 26px;
+			background: #294a73;
+			color: #f3f5f7;
+			padding-bottom: 4px;
+			padding-left: 12px;
+			font-size: 15px;
+		}
+
+		#main h2 strong {
+			float: left;
+		}
+
+		#main h2 span {
+			float: right;
+			margin-right: 14px;
+		}
+
+		.btn,#btn1,#btn2 {
+			width: 211px;
+			height: 30px;
+		}
+
+		#btn1 {
+			background: #efefe7 url(images/up.png) no-repeat 94px 4px;
+		}
+
+		#btn2 {
+			background: #efefe7 url(images/down.png) no-repeat 94px 4px;
+		}
+
+		.cont {
+			width: 211px;
+			height: 475px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.cont ul {
+			position: absolute;
+		}
+
+		.cont li {
+			width: 211px;
+			height: 100px;
+			border-bottom: 2px solid #d4d4da;
+			position: relative;
+		}
+
+		.cont li h4 {
+			position: absolute;
+			top: 16px;
+			left: 12px;
+			color: #0f0f0f;
+			font-size: 15px;
+		}
+
+		.cont li span {
+			position: absolute;
+			left: 12px;
+			top: 68px;
+			color: #c5c5c5;
+			font-size: 10px;
+		}
+
+		.cont li img {
+			position: absolute;
+			left: 107px;
+			top: 16px;
+		}
+
+		.bordertop {
+			border-top: 2px solid #d4d4da;
+		}
+
+		.clearfix:after {
+			content: "";
+			height: 0px;
+			overflow: hidden;
+			visibility: hidden;
+			clear: both;
+			display: block;
+		}
+
+		.clearfix {
+			zoom:1;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oUp = document.getElementById("btn1");
+			var oDown = document.getElementById("btn2");
+			var oUl = document.getElementById("list");
+			var num = 0;
+			oUp.onmousedown = function() {
+				
+				up = setInterval(function(){
+					if (num == -350) {
+						clearInterval(up); //防止ul的top值超出div
+					}else{
+						num = num - 10;
+						oUl.style.top = num + "px";
+					}
+					
+				},50);
+			}
+			oUp.onmouseup = function() {
+				clearInterval(up);
+			}
+			//往上运动按钮
+			oDown.onmousedown = function() {
+				down = setInterval(function(){
+					if (num == 0) {
+						clearInterval(down); //防止ul的top值超出div
+					}else{
+						num = num + 10;
+						oUl.style.top = num + "px";
+					}
+				},50);
+			}
+			oDown.onmouseup = function() {
+				clearInterval(down);
+			}
+			//往下运动按钮
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<h2 class="clearfix">
+		    <strong>妙味课堂</strong>
+			<span>>>更多</span>
+		</h2>
+		<div class="btn">
+			<input type="button" name="btn1" id="btn1">
+		</div>
+		<div class="cont">
+			<ul id="list">
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+				<li class="bordertop">
+					<h4>转移到 Mac</h4>
+					<span>5:20</span>
+					<img src="images/pic.jpg">
+				</li>
+			</ul>
+		</div>
+		<div class="btn">
+			<input type="button" name="btn2" id="btn2">
+		</div>
+	</div>
+</body>
+</html>
