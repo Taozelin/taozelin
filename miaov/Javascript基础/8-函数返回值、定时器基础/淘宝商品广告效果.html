@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝商品广告效果</title>
+	<style type="text/css">
+	    body {
+	    	font-family: "微软雅黑";
+	    }
+
+	    ul,li {
+	    	padding: 0px;
+	    	margin: 0px;
+	    	list-style: none;
+	    }
+
+		#main {
+			width: 298px;
+			height: 218px;
+			border: 1px solid #ff6300;
+			margin: 0 auto;
+		}
+
+		ul {
+			width: 55px;
+			height: 214px;
+			padding-top: 4px;
+			padding-left: 1px;
+			float: left;
+		}
+
+		#cont {
+			float: left;
+			width: 184px;
+			height: 205px;
+			background: url(images/pic0.jpg);
+			margin-top: 5px;
+		}
+
+		ul li {
+			width: 48px;
+			height: 26px;
+			border: 1px solid #ffadad;
+			font-size: 12px;
+			text-align: center;
+			line-height: 26px;
+			color: #424242;
+			margin-bottom: 2px;
+			cursor: pointer;
+		}
+
+		.active {
+			background: #ffadad;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var aLi = document.getElementsByTagName("li");
+			var cont = document.getElementById("cont");
+			var num = 0;
+			function Timer() {
+				timer = setInterval(function(){
+					if (num == 14) {
+						num = 0;
+					}
+					for(var i=0;i<aLi.length;i++){
+							aLi[i].className = "";
+						}
+					aLi[num].className = "active";
+					cont.style.background = "url(images/pic" + num + ".jpg)";
+					num++;
+				},1000)
+			}
+
+            Timer();
+
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].id = i;
+				aLi[i].onmouseover = function() {
+					clearInterval(timer);
+					for(var i=0;i<aLi.length;i++){
+						aLi[i].className = "";
+					}
+					this.className = "active";
+					cont.style.background = "url(images/pic" + this.id + ".jpg)";
+                    num = this.id;//关键！
+				}
+				aLi[i].onmouseout = function() {
+					Timer();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<ul>
+			<li class="active">连衣裙</li>
+			<li>雪纺</li>
+			<li>T恤</li>
+			<li>铅笔裤</li>
+			<li>婚纱</li>
+			<li>外套</li>
+			<li>连体裤</li>
+		</ul>
+		<div id="cont"></div>
+		<ul>
+			<li>包包</li>
+			<li>凉鞋</li>
+			<li>单鞋</li>
+			<li>太阳镜</li>
+			<li>丝袜</li>
+			<li>帆布鞋</li>
+			<li>情侣装</li>
+		</ul>
+	</div>
+</body>
+</html>
