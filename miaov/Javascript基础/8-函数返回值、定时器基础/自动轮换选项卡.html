@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动轮换选项卡</title>
+	<style type="text/css">
+		#main {
+			width: 310px;
+			height: 131px;
+			border: 1px solid #393139;
+			padding-top: 10px;
+			padding-left: 10px;
+			margin: 0 auto;
+		}
+
+		ul,li {
+            padding: 0px;
+            margin: 0px;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+        .top {
+        	width: 162px;
+        	height: 30px;
+        	margin-bottom: 1px;
+        }
+
+        .top li {
+        	float: left;
+        	width: 80px;
+        	height: 30px;
+        	line-height: 30px;
+        	text-align: center;
+        	font-size: 12px;
+        	color: #fff;
+        	background: #005a63;
+        	margin-right: 1px;
+        }
+
+        .bottom div {
+        	width: 300px;
+        	height: 89px;
+        }
+
+        .bottom div img {
+        	float: left;
+        }
+
+        .bottom div ul {
+        	width: 100px;
+        	height: 89px;
+        	float: left;
+        }
+
+        .bottom div ul li {
+        	width: 100px;
+        	height: 29px;
+        	margin-bottom: 1px;
+        	line-height: 29px;
+        	font-size: 12px;
+        	text-align: center;
+        	background: #f7f7f7;
+        }
+
+        .marginbottom {
+        	margin-bottom: 0px;
+        }
+
+        .top .active {
+        	background: #94ffc6;
+        	color: #000;
+        }
+
+        .bottom div ul .active2 {
+        	background: #639cc6;
+        	color: #fff;
+        }
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var main = document.getElementById("main");
+			var oUl = main.getElementsByTagName("ul")[0];
+			var aLi = oUl.getElementsByTagName("li");
+			var oDiv = main.getElementsByTagName("div")[0];
+			var aDiv = oDiv.getElementsByTagName("div");
+			var num = 0;   //底部选项卡的切换
+			var iNow = 0;  //上面两个选项卡的切换
+			var imgs = [["images/pic1_0.jpg","images/pic1_1.jpg","images/pic1_2.jpg"],["images/pic1_3.jpg","images/pic1_4.jpg","images/pic1_5.jpg"]]
+			
+	        setInterval(function(){
+                
+				
+				if (num==3) {
+					num = 0;
+					if (iNow==0) {
+						iNow = 1;
+					}else{
+						iNow = 0;
+					}
+				}
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className = "";
+					aDiv[i].style.display = "none";
+				}
+				aLi[iNow].className = "active";
+				aDiv[iNow].style.display = "block";
+
+				var tab = aDiv[iNow].getElementsByTagName("li");
+				var img = aDiv[iNow].getElementsByTagName("img")[0];
+				for(var j=0;j<tab.length;j++){
+					tab[j].className = "";
+				}
+				tab[num].className = "active2";
+				img.src = imgs[iNow][num];
+				num++;
+			},1000)
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<ul class="top">
+			<li class="active">菜单一</li>
+			<li>菜单二</li>
+		</ul>
+		<div class="bottom">
+		    <div>
+		    	<img src="images/pic1_0.jpg">
+		    	<ul>
+		    		<li class="active2">图片1</li>
+		    		<li>图片2</li>
+		    		<li class="marginbottom">图片3</li>
+		    	</ul>
+		    </div>
+		    <div style="display: none;">
+		    	<img src="images/pic1_3.jpg">
+		    	<ul>
+		    		<li class="active2">图片1</li>
+		    		<li>图片2</li>
+		    		<li class="marginbottom">图片3</li>
+		    	</ul>
+		    </div>
+		</div>
+	</div>
+</body>
+</html>

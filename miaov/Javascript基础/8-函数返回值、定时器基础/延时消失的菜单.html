@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延时消失的菜单</title>
+</head>
+<style type="text/css">
+    body {
+    	font-family: "微软雅黑";
+    }
+
+    ul {
+    	list-style: none;
+    }
+
+    ul,li,h2 {
+    	padding: 0px;
+    	margin: 0px;
+    }
+
+	#main {
+		width: 518px;
+		height: 34px;
+		border: 1px solid #21639c;
+		margin: 0 auto;
+	}
+
+    .list {
+    	width: 518px;
+    	height: 34px;
+    }
+
+    .ali {
+    	float: left;
+    	padding: 10px 0px 10px 24px;
+    	position: relative;
+    }
+
+    .ali h2 {
+    	font-size: 14px;
+    	border-right: 1px solid #000;
+    	height: 14px;
+    	line-height: 14px;
+    	padding-right: 24px;
+    }
+
+    .ali .borderright {
+    	border-right: none;
+    }
+
+    .ali ul {
+    	width: 330px;
+    	height: 12px;
+    	border: 1px solid #94b5d6;
+    	position: absolute;
+    	bottom: -31px;
+    	left: 3px;
+    	padding-left: 15px;
+    	padding-top: 6px;
+    	padding-bottom: 6px;
+    }
+
+    .ali ul li {
+    	float: left;
+    	padding: 0px 8px;
+    	font-size: 12px;
+    	border-right: 1px solid #7b5ab5;
+    	color: #215a9c;
+    	line-height: 12px;
+    	height: 12px;
+    }
+
+    .list span {
+    	float: right;
+    	margin-top: 8px;
+    	margin-right: 21px;
+    	font-size: 14px;
+    }
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		var main = document.getElementById("main");
+		var oUl = main.getElementsByTagName("ul")[0];
+		var aH2 = oUl.getElementsByTagName("h2");
+		var aUl = oUl.getElementsByTagName("ul");
+		var timer = null;
+		for(var i=0;i<aH2.length;i++){
+			aH2[i].id = i;
+			aH2[i].onmouseover = function() {
+				clearTimeout(timer);
+				for(var i=0;i<aUl.length;i++){
+					aUl[i].style.display = "none";
+				}//为了快速在各个h2之间切换，把所有要显示的ul先隐藏了
+	            aUl[this.id].style.display = "block";
+			}
+			aH2[i].onmouseout = function() {
+				a = this.id;
+				timer = setTimeout(function(){
+					aUl[a].style.display = "none";
+				},500);
+			}	
+		}//h2 上面要设置控制ul的隐藏和显示
+		for(var i=0;i<aUl.length;i++){
+		    aUl[i].onmouseover = function() {
+			    clearTimeout(timer);
+			    this.style.display = "block";
+		    }
+		    aUl[i].onmouseout = function() {
+		    	b = this;
+			    timer = setTimeout(function(){
+				    b.style.display = "none";
+			    },500)
+		    }
+	    }//ul自身也要设置控制本身的隐藏和显示
+		
+	}
+		
+</script>
+<body>
+	<div id="main">
+		<ul class="list">
+			<li class="ali">
+				<h2>首页</h2>
+				<ul style="display: none;">
+					<li>最近更新</li>
+					<li>活动</li>
+					<li>报名试听</li>
+					<li class="borderright">学员反馈</li>
+				</ul>
+			</li>
+			<li class="ali">
+				<h2>关于我们</h2>
+				<ul style="display: none;">
+					<li>妙味讲师</li>
+					<li>培训方式</li>
+					<li>培训理念</li>
+					<li class="borderright">联系我们</li>
+				</ul>
+			</li>
+			<li class="ali">
+				<h2>作品</h2>
+				<ul style="display: none;">
+					<li>般固</li>
+					<li>MATRIX</li>
+					<li>留学e网</li>
+					<li class="borderright">ECMall</li>
+				</ul>
+			</li>
+			<li class="ali">
+				<h2 class="borderright">博客</h2>
+				<ul style="display: none;">
+					<li>JS教程</li>
+					<li>弹出层效果</li>
+					<li>3D球面标签云</li>
+					<li class="borderright">Window计算器</li>
+				</ul>
+			</li>
+			<span>>>更多</span>
+		</ul>
+	</div>
+</body>
+</html>
