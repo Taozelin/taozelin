@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<script src="js/miaov.js"></script>
+<script>
+window.onload = function () {
+	var str = '';
+	var len = 20;
+	var aDiv = document.getElementsByTagName('div');
+	var timer = null;
+	var num = 0;
+	var onOff = true;
+	
+	for ( var i=0; i<len; i++ ) {
+		str += '<div style="width:50px; height:50px; background:red; position:absolute; top:0px; left:'+ i*60 +'px;"></div>';
+	}
+	
+	document.body.innerHTML = str;
+	
+	document.onclick = function () {
+		if ( 0<num && num<len ) {
+			return; 
+		}//判断方块是否在运动
+		clearInterval( timer );
+		
+		if (onOff && parseInt(getStyle(aDiv[0],"top")) == 0) {
+			timer = setInterval( function (){
+					doMove( aDiv[num], 'top', 23, 500 );
+					num ++;
+					if ( num === len ) {
+						clearInterval( timer );
+						onOff = false;
+						num = 0;
+					}
+				}, 100 );
+		}else if (parseInt(getStyle(aDiv[0],"top")) <= 500) {
+			num = len-1; //使方块从最后面一个飞起来
+			timer = setInterval( function (){
+					doMove( aDiv[num], 'top', 23, 0 );
+					num --;
+					if ( num === -1 ) {
+						clearInterval( timer );
+						onOff = true;
+						num = 0;
+					}
+				}, 100 );
+		}else {
+			return;
+		}
+				
+	};
+};
+</script>
+
+</head>
+
+<body>
+</body>
+</html>
+
