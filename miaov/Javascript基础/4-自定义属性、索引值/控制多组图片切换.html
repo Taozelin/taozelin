@@ -58,7 +58,7 @@
 			var oPrev = document.getElementById("prev");
 			var oNext = document.getElementById("next");
 			var num = 1;
-			var index = 1;
+			var index = 1; //num控制第一组图片，index控制第二组图片
 			box1.onclick = function() {
 				if (num>3) {
 					num = 0;
@@ -98,7 +98,7 @@
 				box1.style.background = "url(images/" + num +".jpg)";
 				span1.innerHTML = num + "/4";
 				if (index<2) {
-					index = 5;
+					index = 4;
 				}
 				index--;
 				box2.style.background = "url(images/" + index +".png)";
