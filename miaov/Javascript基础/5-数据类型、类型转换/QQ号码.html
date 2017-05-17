@@ -4,7 +4,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>无标题文档</title>
 </head>
-
+<script type="text/javascript">
+	window.onload = function(){
+		var aInput = document.getElementsByTagName("input");
+		aInput[1].onclick = function(){
+			if (aInput[0].value == "") {
+				alert("请输入内容！");
+				return;
+			}
+			if (isNaN(Number(aInput[0].value)) == true) {
+				alert("请输入数字！");
+				return;
+			}
+			if (aInput[0].value.charAt(0) == 0) {
+				alert("第一位不能为零！");
+				return;
+			}
+			if (aInput[0].value.indexOf(".") != -1) {
+				alert("不能为小数！");
+				return;
+			}
+			if (aInput[0].value.length<5||aInput[0].value.length>10) {
+				alert("输入的数字必须在5位以上、10位以下！");
+				return;
+			}
+			alert("输入正确！");
+		}
+		
+	}
+</script>
 <body>
 
 请输入QQ号码：<input type="text" />
