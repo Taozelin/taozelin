@@ -120,23 +120,23 @@
 			var checkBox = main.getElementsByTagName("input");
 			var oBtn = document.getElementById("btn");
 			var aBtn = oBtn.getElementsByTagName("input");
-			var color = ["#f7ffff","#ffffff"];
+			var color = ["#f7ffff","#ffffff"];     //两种交替的颜色放入数组中
 			var onOff = true;
 			var num = 0;
 			for(var i=0;i<aLi.length;i++){
 				aLi[i].index = i;
 				aLi[i].style.background = color[i%color.length];
 				aLi[i].onmouseover = function() {
-					this.style.background = "#efefef";
+					this.style.background = "#efefef";        //鼠标移入时候，发生背景颜色的变化
 				}
 				aLi[i].onmouseout = function() {
-					this.style.background = color[this.index%color.length];
+					this.style.background = color[this.index%color.length];   //鼠标移出，颜色变化成交替的双色
 					if (checkBox[this.index].checked) {
-						this.style.background = "#efefef";
+						this.style.background = "#efefef";             //如果表单被选中,发生背景颜色的变化
 					}
 				}
 				checkBox[i].onclick = function() {
-					this.parentNode.style.background = "#efefef";
+					this.parentNode.style.background = "#efefef";   //使Li的背景颜色变化
 					if (this.checked) {
 						num++;
 					}else {
@@ -144,15 +144,15 @@
 					}
 
 					if (num == checkBox.length) {
-					    allcheck.checked = true;
+					    allcheck.checked = true;      //如果被选中的盒子数量等于盒子数量的总数,全选按钮被选中
 					}else{
 						allcheck.checked = false;
-						onOff = true;
+						onOff = true;                //onOff为true,按下全选按钮可以让所有按钮选中
 					}
 
 					if (num>0) {
 						for(var i=0;i<aBtn.length;i++){
-							aBtn[i].disabled = "";
+							aBtn[i].disabled = "";         //如果有一个按钮被选中,其他按钮(收藏、添加、删除)能被点击
 						}
 					}else {
 						for(var i=0;i<aBtn.length;i++){
@@ -172,7 +172,7 @@
 					for(var i=0;i<aBtn.length;i++){
 						aBtn[i].disabled = "";
 					}
-					onOff = false;
+					onOff = false;            //onOff为false,下次点击全选按钮所有按钮不被选中
 					num = checkBox.length;
 				}else {
 					for(var i=0;i<checkBox.length;i++){
