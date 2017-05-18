@@ -84,7 +84,9 @@
 		var aH2 = oUl.getElementsByTagName("h2");
 		var aUl = oUl.getElementsByTagName("ul");
 		var timer = null;
-		for(var i=0;i<aH2.length;i++){
+		var a = null;
+		var b = null;
+		for(var i=0;i<aH2.length;i++){       //鼠标移入标题后发生的事件
 			aH2[i].id = i;
 			aH2[i].onmouseover = function() {
 				clearTimeout(timer);
@@ -100,7 +102,7 @@
 				},500);
 			}	
 		}//h2 上面要设置控制ul的隐藏和显示
-		for(var i=0;i<aUl.length;i++){
+		for(var i=0;i<aUl.length;i++){         //鼠标移入弹出的菜单时发生的事件
 		    aUl[i].onmouseover = function() {
 			    clearTimeout(timer);
 			    this.style.display = "block";
