@@ -136,7 +136,7 @@
 		    	aLi[i].onmouseover = function(){
 		    		var aDiv = this.getElementsByTagName("div")[0];
 		    		var aP = this.getElementsByTagName("p")[0];
-		    		for(var i=0;i<aLi.length;i++){
+		    		for(var i=0;i<aLi.length;i++){                       //鼠标移入的时候，每个Li还原成开始的样子
 		    			aLi[i].style.height = "25px";
 		    			aLi[i].getElementsByTagName("div")[0].style.display = "none";
 		    			aLi[i].getElementsByTagName("p")[0].style.display = "block";
@@ -145,7 +145,7 @@
 		    		aP.style.display = "none";
                     aDiv.style.display = "block";
                     this.style.backgroundColor = "#fff";
-                    this.style.height = "80px";
+                    this.style.height = "80px";          //改变样式
 		    	}
 		    	
 		    }
