@@ -84,15 +84,15 @@
 			var oNo = li.getElementsByTagName("input")[2];
 			var oText = li.getElementsByTagName("input")[0];
 			aImg.onclick = function() {
-				aP.style.display = "none";
+				aP.style.display = "none";        //点击图片显示输入框
 			}
             oYes.onclick = function() {
-            	aSpan.innerHTML = oText.value;
+            	aSpan.innerHTML = oText.value;   //点击确定按钮，修改原来的内容
             	aP.style.display = "block";
             	oText.value = "";
             }
             oNo.onclick = function() {
-            	oText.value = "";
+            	oText.value = "";                //点击取消，不修改
             	aP.style.display = "block";
             }
 		}
