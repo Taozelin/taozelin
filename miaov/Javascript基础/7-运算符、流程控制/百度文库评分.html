@@ -43,14 +43,14 @@
 			var aSpan = main.getElementsByTagName("span");
 			var eva = document.getElementById("eva");
 			var evaText = ["很差","一般","还行","不错","推荐"];
-			var onOff = true;
+			var onOff = true;        //如果onOff为false的话,就说明星星被点击了,如果为true的话,就说明星星都还未被点击
 			for(var i=0;i<aSpan.length;i++){
 				aSpan[i].index = i;
 				aSpan[i].onmouseover = function() {
 					for(var i=0;i<aSpan.length;i++){
 						aSpan[i].style.background = "url(images/star.png)";
-					}//先使所有的星星重置
-					for(var i=0;i<this.index+1;i++){
+					}  //先使所有的星星重置
+					for(var i=0;i<this.index+1;i++){            //使第一个到当前触摸的星星都变色 index+1是因为当前星星的index是从0开始的
 						/*if (this.index<2) {
 							aSpan[i].style.background = "url(images/garystar.png)";
 							
@@ -70,7 +70,7 @@
 					    }
 					} else {
 						for(var i=0;i<aSpan.length;i++){
-						    aSpan[i].style.background = "url(images/star.png)";
+						    aSpan[i].style.background = "url(images/star.png)";  
 					    }
 						for(var i=0;i<num;i++){
 							aSpan[i].style.background = num<3 ? "url(images/garystar.png)" : "url(images/redstar.png)";
@@ -86,7 +86,7 @@
 						aSpan[i].style.background = this.index<2 ? "url(images/garystar.png)" : "url(images/redstar.png)";
 						eva.innerHTML = evaText[i];
                         onOff = false;
-                        num = this.index+1;
+                        num = this.index+1;   //记录上一次点击了几颗星星
 					}
 				}
 			}
