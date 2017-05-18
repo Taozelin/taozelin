@@ -7,12 +7,12 @@
 window.onload = function () {
 	var oUl = document.getElementById('list');
 	var aLi = oUl.getElementsByTagName('li');
-	var a = document.getElementById("a");
-	var b = document.getElementById("b");
-	var c = document.getElementById("c");
-	var aStrong = oUl.getElementsByTagName("strong");
-	var aSpan = oUl.getElementsByTagName("span");
-	var aEm = oUl.getElementsByTagName("em");
+	var a = document.getElementById("a"); //合计的件数
+	var b = document.getElementById("b");  //合计的价钱元
+	var c = document.getElementById("c");  //合计中价格最高的价格
+	var aStrong = oUl.getElementsByTagName("strong");  //数量
+	var aSpan = oUl.getElementsByTagName("span");  //小计
+	var aEm = oUl.getElementsByTagName("em");  //单价
 	var num = 0;
 	var num2 = 0;
 	var arr = [];
@@ -21,10 +21,10 @@ window.onload = function () {
 		fnCount ( aLi[i] );
 	}
 	function sortNumber(a,b){
-		return a - b
+		return a - b            //排序函数 从小到大排列
 	}
 	function fnCount ( li ) {
-		var aBtn = li.getElementsByTagName ('input');
+		var aBtn = li.getElementsByTagName ('input');   //加减号
 		var oStrong = li.getElementsByTagName ('strong')[0];
 		var oEm = li.getElementsByTagName ('em')[0];
 		var oSpan = li.getElementsByTagName ('span')[0];
@@ -41,7 +41,7 @@ window.onload = function () {
 					num += parseInt(aStrong[i].innerHTML);
 					num2 += parseFloat(aSpan[i].innerHTML);
 					if (parseInt(aStrong[i].innerHTML) !== 0) {
-						arr.push(parseFloat(aEm[i].innerHTML));
+						arr.push(parseFloat(aEm[i].innerHTML));  //把选中的物品的单价放入一个数组中，方便后面筛选。
 					}
 				} 
 				a.innerHTML = num;
@@ -50,18 +50,18 @@ window.onload = function () {
 				num2 = 0;
 				arr.sort(sortNumber);
 				if (arr[arr.length-1] == undefined) {
-					c.innerHTML = 0;
+					c.innerHTML = 0;                 //如果数组的最后一位是undefined，就说明没有选择任何物品。
 				}else{
 					c.innerHTML = arr[arr.length-1];
 				}
-				arr = [];
+				arr = [];  //清空数组。
 		};
 		aBtn[1].onclick = function () {
 			n++;
 			oStrong.innerHTML = n;
 			oSpan.innerHTML = n*price + '元';
 			for(var i=0;i<aStrong.length;i++){
-					num += parseInt(aStrong[i].innerHTML);
+					num += parseInt(aStrong[i].innerHTML);    
 					num2 += parseFloat(aSpan[i].innerHTML);
 					if (parseInt(aStrong[i].innerHTML) !== 0) {
 						arr.push(parseFloat(aEm[i].innerHTML));
@@ -89,35 +89,35 @@ window.onload = function () {
 <body>
 
 <ul id="list">
-	<li>
+  <li>
   	<input type="button" value="-" />
     <strong>0</strong>
   	<input type="button" value="+" />
     单价：<em>12.5元</em>
     小计：<span>0元</span>
   </li>
-	<li>
+  <li>
   	<input type="button" value="-" />
     <strong>0</strong>
   	<input type="button" value="+" />
     单价：<em>10.5元</em>
     小计：<span>0元</span>
   </li>
-	<li>
+  <li>
   	<input type="button" value="-" />
     <strong>0</strong>
   	<input type="button" value="+" />
     单价：<em>8.5元</em>
     小计：<span>0元</span>
   </li>
-	<li>
+  <li>
   	<input type="button" value="-" />
     <strong>0</strong>
   	<input type="button" value="+" />
     单价：<em>8元</em>
     小计：<span>0元</span>
   </li>
-	<li>
+  <li>
   	<input type="button" value="-" />
     <strong>0</strong>
   	<input type="button" value="+" />
