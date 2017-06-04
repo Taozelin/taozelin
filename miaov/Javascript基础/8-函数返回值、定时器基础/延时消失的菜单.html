@@ -85,7 +85,7 @@
 		var aUl = oUl.getElementsByTagName("ul");
 		var timer = null;
 		var a = null;
-		var b = null;
+		var b = null;   //a和b用来存放当前发生事件的元素和元素的id
 		for(var i=0;i<aH2.length;i++){       //鼠标移入标题后发生的事件
 			aH2[i].id = i;
 			aH2[i].onmouseover = function() {
@@ -104,7 +104,7 @@
 		}//h2 上面要设置控制ul的隐藏和显示
 		for(var i=0;i<aUl.length;i++){         //鼠标移入弹出的菜单时发生的事件
 		    aUl[i].onmouseover = function() {
-			    clearTimeout(timer);
+			    clearTimeout(timer);              //使移入的时候能够摸到菜单栏，不让菜单栏消失
 			    this.style.display = "block";
 		    }
 		    aUl[i].onmouseout = function() {
