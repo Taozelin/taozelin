@@ -32,7 +32,7 @@ window.onload = function () {
 						num = len-1;
 					}
 				}, 100 );
-		}else if (parseInt(getStyle(aDiv[0],"top")) <= 500) {
+		}else if (parseInt(getStyle(aDiv[0],"top")) <= 500) {  //此处会导致连续点击出现方块一上一下的现象
 			timer = setInterval( function (){
 					doMove( aDiv[num], 'top', 23, 0 );
 					num --;
