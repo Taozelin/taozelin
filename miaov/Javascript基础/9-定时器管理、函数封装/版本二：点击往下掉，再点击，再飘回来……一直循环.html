@@ -37,11 +37,11 @@ window.onload = function () {
 					}
 				}, 100 );
 		}else if (parseInt(getStyle(aDiv[0],"top")) <= 500) {
-			num = len-1; //使方块从最后面一个飞起来
+			num = 0; //使方块从最后面一个飞起来
 			timer = setInterval( function (){
 					doMove( aDiv[num], 'top', 23, 0 );
-					num --;
-					if ( num === -1 ) {
+					num ++;                           
+					if ( num === len ) {             //要使方块从一个飞起来,把此处的-1改为len,num++改为num--,第40行把num改为len-1;
 						clearInterval( timer );
 						onOff = true;
 						num = 0;
