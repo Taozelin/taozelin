@@ -83,9 +83,9 @@
 		window.onload = function() {
 			var main = document.getElementById("main");
 			var oUl = main.getElementsByTagName("ul")[0];
-			var aLi = oUl.getElementsByTagName("li");
+			var aLi = oUl.getElementsByTagName("li");  //上面选项卡部分
 			var oDiv = main.getElementsByTagName("div")[0];
-			var aDiv = oDiv.getElementsByTagName("div");
+			var aDiv = oDiv.getElementsByTagName("div");  //下面选项卡对应的两个部分
 			var num = 0;   //底部选项卡的切换
 			var iNow = 0;  //上面两个选项卡的切换
 			var imgs = [["images/pic1_0.jpg","images/pic1_1.jpg","images/pic1_2.jpg"],["images/pic1_3.jpg","images/pic1_4.jpg","images/pic1_5.jpg"]]
@@ -105,11 +105,11 @@
 					aLi[i].className = "";
 					aDiv[i].style.display = "none";
 				}
-				aLi[iNow].className = "active";
-				aDiv[iNow].style.display = "block";
+				aLi[iNow].className = "active";      
+				aDiv[iNow].style.display = "block";    //当前变换选项卡和选项卡对应的部分
 
 				var tab = aDiv[iNow].getElementsByTagName("li");
-				var img = aDiv[iNow].getElementsByTagName("img")[0];
+				var img = aDiv[iNow].getElementsByTagName("img")[0];     //获取当前选项卡的对应部分下的图片和切换部分
 				for(var j=0;j<tab.length;j++){
 					tab[j].className = "";
 				}
