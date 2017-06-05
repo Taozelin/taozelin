@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片自动切换</title>
+	<style type="text/css">
+		#main {
+			width: 400px;
+			height: 300px;
+			border: 6px solid #c0c0c0;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+		}
+
+		#top {
+			width: 2000px;
+			height: 300px;
+			position: absolute;
+		}
+
+		#bottom {
+			width: 500px;
+			height: 60px;
+			position: absolute;
+			bottom: 0;
+		}
+
+		p {
+			width: 400px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			color: #fff;
+			margin: 0px;
+			padding: 0px;
+			position: absolute;
+			bottom: -60px;
+			background-color: #000;
+			opacity: 0.3;
+			filter: alpha(opacity = 30);
+		}
+
+		img {
+			float: left;
+		}
+	</style>
+	<script type="text/javascript" src="js/miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var top = document.getElementById("top");
+			var aImg = top.getElementsByTagName("top");
+			var bottom = document.getElementById("bottom");
+			var aP = bottom.getElementsByTagName("p");
+			var num = 0;
+			Fn1();
+			function Fn1(){
+				setTimeout(function(){
+					doMove(aP[num],"bottom",10,-60,function(){  //让底部的p标签下去，第一个标签因为position top值为-60 所以没变化一开始
+						num++;
+						if (num == 5) {       //如果自动播放到最后一张,就跳过第一张，播放第二张
+							num = 1;
+							top.style.left = 0;     
+						}
+						doMove(top,"left",10,-400*num,function(){   //让top运动
+							doMove(aP[num],"bottom",10,0);          //让底部的p标签上来
+							Fn1();                                  //从头再运行一遍函数，以达到轮播效果
+						})
+					});
+				},2000)
+			}	
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+	    <div id="top">
+	    	<img src="images/sky.jpg">
+	    	<img src="images/no.jpg">
+	    	<img src="images/girl.jpg">
+	    	<img src="images/street.jpg">
+	    	<img src="images/sky.jpg">
+	    </div>
+		<div id="bottom">
+			<p>Sky</p>
+			<p>No</p>
+			<p>Girl</p>
+			<p>Street</p>
+			<p>Sky</p>
+		</div>
+	</div>
+</body>
+</html>
