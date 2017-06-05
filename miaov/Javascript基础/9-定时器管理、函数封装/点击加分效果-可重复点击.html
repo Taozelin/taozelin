@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击加分效果-可重复点击</title>
+	<style type="text/css">
+		#main {
+			width: 500px;
+			height: 50px;
+			border: 1px solid #000;
+			margin: 350px auto;
+			line-height: 50px;
+			position: relative;
+		}
+
+		span {
+			font-size: 20px;
+			padding-left: 9px;
+			padding-right: 9px;
+			position: absolute;
+			top: 0px;
+		}
+
+		p {
+			position: absolute;
+			margin: 0px;
+			padding: 0px;
+			width: 0px;
+			height: 50px;
+			background-color: #FB2D2D;
+		}
+	</style>
+	<script type="text/javascript" src="js/miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var main = document.getElementById("main");
+			var aSpan = main.getElementsByTagName("span");
+			var oP = main.getElementsByTagName("p")[0];
+			
+			var timer = null;
+			
+			var onOff = true;
+			for(var i=0;i<aSpan.length;i++){
+			    aSpan[i].style.left = i*50+"px";       //把所有的+1进行绝对定位
+			}
+			main.onclick = function() {
+
+				if (!onOff) {
+					return;             //防止连续点击，动画全部走完后才能再次点击
+				}
+				onOff = false;
+				var a = b = c= 0;       
+				timer = setInterval(function(){           //+1的动画，实现上升透明度消失，最后回到原点，可以再次进行点击
+					doMove(aSpan[a],"top",10,-80,function(){
+						b++;
+						if (b == aSpan.length) {
+							end("doMove");         
+						}
+					});
+					opacity(aSpan[a],3,0,function(){
+						c++;
+						if (c == aSpan.length) {
+							end("opacity");
+						}
+					});
+					a++;
+					if (a == aSpan.length) {           //+1的上升和透明度消失动画走完，停止定时器
+						clearInterval(timer);
+					}
+				},100)
+				doMove(oP,"width",10,500,function(){     //进度条的长度和透明度动画，最后回到原来的样子以能够再次点击
+					opacity(oP,5,0,function(){
+						opacity(oP,5,100);
+						oP.style.width = 0;
+					});
+				})
+
+				var arr = [];          //储存+1动画的两次flag
+				function end(attr) {
+					var d = 0;
+					arr.push(attr);
+					if (arr.length%2 == 0) {    //前面+1的两次动画完成后，才能够把+1移动到原点，透明度变为100
+						for(var i=0;i<aSpan.length;i++){
+							aSpan[i].style.top = 0;
+							opacity(aSpan[i],2,100,function(){
+								d++;
+								if (d == aSpan.length) {
+									onOff = true;   //使动画能够再次点击触发
+								}
+							})
+						}
+					}
+					
+				}
+			}
+            
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<span>+1</span>
+		<p></p>
+	</div>
+</body>
+</html>
