@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时抢购商品</title>
+	<style type="text/css">
+        h2,h4,p,ul,li {
+        	padding: 0px;
+        	margin: 0px;
+        }
+
+	    body {
+	    	font-size: 12px;
+	    	font-family: "微软雅黑";
+	    }
+
+        ul {
+        	list-style: none;
+        }
+
+		#main {
+			width: 648px;
+			margin: 0 auto;
+		}
+
+		h2 {
+			width: 648px;
+			height: 28px;
+			line-height: 28px;
+			border-bottom: 2px solid #a0a0a4;
+			color: #636b52;
+		}
+
+		.center {
+			width: 648px;
+			height: 280px;
+			margin-bottom: 40px;
+			
+		}
+
+		.center .borderright {
+			border-right: 0;
+		}
+
+		.center li {
+			float: left;
+			width: 160px;
+			height: 280px;
+			border-right: 2px solid #efefef;
+			background: url(images/pic_05.jpg);
+			position: relative;
+		}
+
+        .center .pos {
+        	padding-left: 9px;
+			padding-top: 5px;
+			width: 151px;
+			height: 275px;
+        	position: absolute;
+        	background: #fff;
+        }
+
+		
+
+		.center .pos  .text {
+			width: 100px;
+		}
+
+		.center .p1 {
+			width: 149px;
+			height: 44px;
+			line-height: 44px;
+			color: #a0a0a4;
+			text-align: right;
+		}
+
+		.center img {
+			margin-left: 3px;
+			margin-bottom: 14px;
+		}
+
+		.center .p2 {
+			width: 140px;
+			height: 48px;
+			line-height: 16px;
+			color: #636373;
+		}
+
+		.center .p2 .price {
+			color: #bdadbd;
+		}
+
+		.center .p2 .red {
+			color: #bd214a;
+			font-weight: bold;
+		}
+
+		.title {
+			width: 584px;
+			height: 36px;
+			line-height: 36px;
+			padding-left: 64px;
+			background-color: #ded6e7;
+		}
+
+		.title span {
+			color: #522121;
+			margin-right: 142px;
+			font-weight: bold;
+		}
+
+		#main .bottom {
+			font-size: 14px;
+            text-align: left;
+            font-weight: bold;
+		}
+
+		#main .bottom span {
+			color: red;
+		}
+
+		#show {
+			width: 648px;
+		}
+
+		#show li {
+			width: 643px;
+			height: 72px;
+			margin-top: 4px;
+			margin-bottom: 4px;
+			padding-left: 5px;
+			line-height: 72px;
+			border: 1px solid #767676;
+			background: #ded6e7;
+			position: relative;
+			
+		}
+
+		#show span {
+			margin-right: 75px;
+			color: #522121;
+		}
+
+		#show img {
+			width: 77px;
+			height: 60px;
+			border: 1px solid #522121;
+			position: absolute;
+			top: 4px;
+			right: 45px;
+		}
+	</style>
+	<script type="text/javascript" src="js/miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oUl = document.getElementById("list");
+			var aDiv = oUl.getElementsByTagName("div");
+			
+			var show = document.getElementById("show");
+			var bottom = document.getElementById("bottom");
+			var addPrice = bottom.getElementsByTagName("span")[0];
+			
+			
+			function Fnn(box){
+                    var oBtn = box.getElementsByTagName("button")[0];
+                    
+
+                    
+                    oBtn.onclick = function() {
+                        var oInp = box.getElementsByTagName("input")[0];
+                        var iNew = new Date(oInp.value);
+                        var oP = box.getElementsByTagName("p")[0];
+					    var oSpan = box.getElementsByTagName("span")[0].innerHTML;
+                    	clearInterval( box.timer );
+                    	
+                    	box.timer = setInterval (function (){
+                    		
+                    		var iNow = new Date();   //当前系统的时间
+                    		var t = Math.floor( ( iNew - iNow ) / 1000 );    //倒计时：未来的时间-当前系统的时间 单位：毫秒
+                    		
+                    		if ( t >= 0 ) {           //使倒计时到0停止，防止倒计时到负数
+                    			
+                    			oP.innerHTML = "剩余"+ addZero(Math.floor(t/86400))+'天'+addZero(Math.floor(t%86400/3600))+'时'+addZero(Math.floor(t%86400%3600/60))+'分'+addZero(t%60)+'秒';	
+                    			//显示倒计时时间
+                    		} else {
+                    			
+                    			clearInterval( box.timer );   //时间到了暂停定时器
+                    			shake(box,"left",0,function(){  //抖动函数
+                    				doMove(box,"top",10,275,function(){   //运动函数
+                    					opacity(box,2,0,function(){   //透明函数
+                    						box.style.display = "none";
+                    						show.innerHTML += "<li><span>疯狂"+oSpan+"，美的爆款隐藏式面板...</span><span>"+oSpan+".00"+"</span><img src='images/pic_0"+box.id+".jpg'></li>"
+                    						//底部添加商品价格栏
+                    						addPrice.innerHTML = parseFloat(addPrice.innerHTML) + parseInt(oSpan) + ".00";   //最底部合计金额
+                    					})
+                    				})
+                    			})
+                    			
+                    			
+                    		}
+                    	
+                    	}, 1000);
+                    }	
+			}
+			    
+			function addZero(n){
+				if (n<10) {
+					return "0" + n;
+				}else {
+					return "" + n;
+				}
+			}
+			
+			for(var i=0;i<aDiv.length;i++){
+				aDiv[i].id = i+1;
+				Fnn(aDiv[i]);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<h2>限购时间</h2>
+		<ul class="center" id="list">
+			<li>
+			    <div class="pos">
+			    	<input type="text" class="text" value="April 16,2017 9:36:0" >
+			    	<button>确定</button> 
+			    	<p class="p1">剩余00天00时00分00秒</p>
+			    	<img src="images/pic_01.jpg">
+			    	<p class="p2">疯狂<span>599</span>，美的爆款隐藏式面板下拉门微波炉<br><span class="price">抢购价：</span><span class="red">￥599.00</span></p>
+			    </div>
+			    
+			</li>
+			<li>
+			    <div class="pos">
+			        <input type="text" class="text" >
+			        <button>确定</button>
+			    	<p class="p1">剩余00天00时00分00秒</p>
+			    	<img src="images/pic_02.jpg">
+			    	<p class="p2">疯狂<span>3299</span>，美的爆款隐藏式面板下拉门微波炉<br><span class="price">抢购价：</span><span class="red">￥3299.00</span></p>
+			    </div>
+				
+			</li>
+			<li>
+			    <div class="pos">
+			        <input type="text" class="text" >
+			        <button>确定</button>
+			    	<p class="p1">剩余00天00时00分00秒</p>
+			    	<img src="images/pic_03.jpg">
+			    	<p class="p2">疯狂<span>1</span>元钱，美的爆款隐藏式面板下拉门微波炉<br><span class="price">抢购价：</span><span class="red">￥1.00</span></p>
+			    </div>
+				
+			</li>
+			<li class="borderright">
+			    <div class="pos">
+			        <input type="text" class="text" >
+			        <button>确定</button>
+			    	<p class="p1">剩余00天00时00分00秒</p>
+			    	<img src="images/pic_04.jpg">
+			    	<p class="p2">疯狂<span>168</span>，美的爆款隐藏式面板下拉门微波炉<br><span class="price">抢购价：</span><span class="red">￥168.00</span></p>
+			    </div>
+				
+			</li>
+		</ul>
+		<div class="title">
+			<span>商品名称</span>
+			<span>价钱</span>
+		</div>
+		<ul id="show">
+			<!--<li>
+				<span>疯狂599，美的爆款隐藏式面板...</span>
+				<span>599.00</span>
+				<img src="images/pic_02.jpg">  
+			</li>-->
+		</ul>
+		<p class="bottom" id="bottom">
+			总价：<span>00.00</span>元
+		</p>
+	</div>
+</body>
+</html>
