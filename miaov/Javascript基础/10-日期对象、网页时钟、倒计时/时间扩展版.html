@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+	<style type="text/css">
+		ul, li {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		ul {
+			list-style: none;
+			width: 976px;
+			height: 172px;
+			margin: 0 auto;
+		}
+
+		li {
+			width: 122px;
+			height: 172px;
+			float: left;
+			overflow: hidden;
+			position: relative;
+		}
+
+		ul div {
+			width: 122px;
+			height: 344px;
+			position: absolute;
+		}
+
+		img {
+			float: left;  /*去掉图片上下中间的间隙*/
+		}
+	</style>
+	<script type="text/javascript" src="js/miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			function Fn1(){
+				var time = new Date;
+			    var iHours = time.getHours(time);
+			    var iMinutes = time.getMinutes(time);
+			    var iSeconds = time.getSeconds(time);
+			    var oTop= document.getElementById("top");
+			    var aLi = document.getElementsByTagName("li");
+                var str = '';
+                str = addZero(iHours) + ":" + addZero(iMinutes) + ":" + addZero(iSeconds);
+			    
+			    for(var i=0;i<aLi.length;i++){
+			    	Fn2(aLi[i],i);          //一定要写成函数传参的形式，直接把下面一部分放进去的话，会出错
+			    }
+			    
+			    function Fn2(li,num){       
+			    	var aImg = li.getElementsByTagName("img");
+			    	var oDiv = li.getElementsByTagName("div")[0];
+			    	if (str.charAt(num) == ":") {
+			    		aImg[0].src = "images/colon.JPG";
+			    	}else{
+			    		aImg[1].src = "images/" + str.charAt(num) +".JPG";
+			    		if (aImg[0].src != aImg[1].src) {         //如果上面的图片和下面的图片不一样的话，就让oDiv运动
+			    			doMove(oDiv,"top",7,-172,function(){
+			    				aImg[0].src = aImg[1].src;       
+			    				oDiv.style.top = 0;
+			    			})
+			    		}
+			    	}
+			    }    
+			}
+			
+            
+            
+
+			setInterval(Fn1,1000);
+            
+			function addZero(n){
+				if (n<10) {
+					return "0" + n;
+				}else {
+					return "" + n;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+    <div id="top"></div>
+	<ul>
+		<li>
+		    <div>
+		    	<img src="images/0.JPG" alt="">
+		    	<img src="images/0.JPG" alt="">
+		    </div>	
+		</li>
+		<li>
+			<div>
+		    	<img src="images/0.JPG" alt="">
+		    	<img src="images/0.JPG" alt="">
+		    </div>
+		</li>
+		<li>
+			<div>
+		    	<img src="images/colon.JPG" alt="">
+		    </div>
+		</li>
+		<li>
+			<div>
+		    	<img src="images/0.JPG" alt="">
+		    	<img src="images/0.JPG" alt="">
+		    </div>
+		</li>
+		<li>
+			<div>
+		    	<img src="images/0.JPG" alt="">
+		    	<img src="images/0.JPG" alt="">
+		    </div>
+		</li>
+		<li>
+			<div>
+		    	<img src="images/colon.JPG" alt="">
+		    </div>
+		</li>
+		<li>
+			<div>
+		    	<img src="images/0.JPG" alt="">
+		    	<img src="images/0.JPG" alt="">
+		    </div>
+		</li>
+		<li>
+			<div>
+		    	<img src="images/0.JPG" alt="">
+		    	<img src="images/0.JPG" alt="">
+		    </div>
+		</li>
+	</ul>
+</body>
+</html>
