@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+	<style type="text/css">
+		ul, li {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		ul {
+			list-style: none;
+			width: 976px;
+			height: 172px;
+			margin: 0 auto;
+		}
+
+		li {
+			width: 122px;
+			height: 172px;
+			float: left;
+		}
+
+		
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			function Fn1(){
+				var time = new Date;
+			    var iHours = time.getHours(time);
+			    var iMinutes = time.getMinutes(time);
+			    var iSeconds = time.getSeconds(time);
+			    var aImg = document.getElementsByTagName("img");
+			    var oDiv= document.getElementsByTagName("div")[0];
+                var str = '';
+                str = addZero(iHours) + ":" + addZero(iMinutes) + ":" + addZero(iSeconds);
+                for(var i=0;i<aImg.length;i++){
+                	if (i==2 || i==5) {
+                		continue;
+                	}
+                	aImg[i].src = "images/"+str.charAt(i)+".JPG";
+                }
+			    oDiv.innerHTML = str;
+			}
+			
+			setInterval(Fn1,1000);
+            
+			function addZero(n){
+				if (n<10) {
+					return "0" + n;
+				}else {
+					return "" + n;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+    <div></div>
+	<ul>
+		<li>
+			<img src="images/0.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/0.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/colon.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/0.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/0.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/colon.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/0.JPG" alt="">
+		</li>
+		<li>
+			<img src="images/0.JPG" alt="">
+		</li>
+	</ul>
+</body>
+</html>
