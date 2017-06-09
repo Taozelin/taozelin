@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查找、替换、删除</title>
+	<style type="text/css">
+	    body {
+	    	font-size: 12px;
+	    	font-family: "微软雅黑";
+	    }
+        ul,li,p {
+        	padding: 0px;
+        	margin: 0px;
+        }
+
+        ul {
+        	list-style: none;
+        }
+
+	    #main {
+	    	width: 634px;
+	    	height: 488px;
+	    	margin: 0 auto;
+	    	position: relative;
+	    	background-color: #efefe7;
+	    }
+
+		#cont {
+			width: 479px;
+			height: 230px;
+			position: absolute;
+			left: 28px;
+			top: 65px;
+			padding-left: 20px;
+			padding-top: 20px;
+			font-size: 16px;
+			line-height: 28px;
+			background-color: #fff;
+		}
+
+		#sideBtn {
+			width: 80px;
+			position: absolute;
+			top: 50px;
+			right: 15px;
+			font-size: 16px;
+		}
+
+		
+
+		#sideBtn p {
+			width: 80px;
+			height: 40px;
+			background-color: #94948c;
+			color: #fff;
+			line-height: 40px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		#sideBtn ul {
+			width: 80px;
+			height: 80px;
+			margin-top: 2px;
+			display: none;
+		}
+
+		#sideBtn li {
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		#sideBtn .li1 {
+			background-color: #e76308;
+			color: #fff;
+		}
+
+		#sideBtn .li2 {
+			background-color: #c0c0c0;
+			color: #000;
+		}
+
+		#bottomShow {
+			width: 480px;
+			height: 105px;
+			border: 10px solid #e71063;
+			position: absolute;
+			left: 18px;
+			bottom: 20px;
+			background-color: #e7e7b5;
+			padding-left: 20px;
+			padding-top: 20px;
+		}
+
+		#bottomShow h2 {
+			width: 459px;
+			height: 32px;
+			border-bottom: 2px solid #e73100;
+		}
+
+		#bottomShow h2 p {
+			float: left;
+			width: 78px;
+			height: 32px;
+			text-align: center;
+			line-height: 32px;
+			font-size: 16px;
+			cursor: pointer;
+
+		}
+
+		#bottomShow .red {
+			background-color: red;
+			color: #fff;
+		}
+        
+        #bottomShow .close {
+        	position: absolute;
+        	width: 16px;
+        	height: 16px;
+        	font-size: 16px;
+        	line-height: 16px;
+        	text-align: center;
+        	top: 12px;
+        	right: 12px;
+        	font-weight: bold;
+        	cursor: pointer;
+        }
+
+        .light {
+        	background-color: #FCD82E;
+        }
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var sideBtn = document.getElementById("sideBtn");
+			var oP = sideBtn.getElementsByTagName("p")[0];
+			var oUl = sideBtn.getElementsByTagName("ul")[0];
+			var aLi = oUl.getElementsByTagName("li");
+			var bottomShow = document.getElementById("bottomShow");
+			var aP = bottomShow.getElementsByTagName("p");
+			var oDiv = bottomShow.getElementsByTagName("div")[0];
+			var aDiv = oDiv.getElementsByTagName("div");
+			var close = bottomShow.getElementsByTagName("span")[0];
+			var aInput = bottomShow.getElementsByTagName("input");
+			var aBtn = bottomShow.getElementsByTagName("button");
+			var oText = document.getElementById("cont");
+			var onOff = true;
+			var oldText = oText.innerHTML;
+			oP.onclick = function() {  //控制侧边菜单按钮的隐藏和显示
+				if (onOff) {
+					oUl.style.display = "block";
+				}else {
+					oUl.style.display = "none";
+				}
+				onOff = !onOff;
+			}
+			aLi[0].onclick = function(){    //通过点击侧边菜单控制底部的查找功能显示
+				bottomShow.style.display = "block";
+				Fn1(0);
+			}
+			aLi[1].onclick = function(){    //通过点击侧边菜单控制底部的替换功能显示
+				bottomShow.style.display = "block";
+				Fn1(1);
+			}
+			aP[0].onclick = function(){   //点击底部查找按钮切换按钮背景和字体颜色
+				Fn1(0);
+			}
+			aP[1].onclick = function(){   //点击底部替换按钮切换按钮背景和字体颜色
+				Fn1(1);
+			}
+			close.onclick = function(){   //"X"关闭底部菜单
+				bottomShow.style.display = "none";
+			}
+			aBtn[0].onclick = function() {
+				if (!aInput[0].value) {    //未输入内容的处理方式
+					alert("请输入要查找的内容！");
+					return;
+				}
+				if (oText.innerHTML.indexOf(aInput[0].value) == -1) {  //未找到要查询的内容的处理方式
+					alert("未找到【"+aInput[0].value+"】!!");
+					aInput[0].value = "";
+					return;
+				}
+				oText.innerHTML = oldText;    //使上一次的查找内容标记消失 以便不影响这次的查找
+				var str = oText.innerHTML;
+				
+                oText.innerHTML = str.split(aInput[0].value).join("<span class='light'>"+aInput[0].value+"</span>"); //查找
+                aInput[0].value = "";  //清空表单输入框
+			}
+
+            
+
+			aBtn[1].onclick = function() {
+				if(!aInput[1].value){
+					alert("请输入要查找替换的内容！");
+					return;
+				}
+				if (oText.innerHTML.indexOf(aInput[1].value) == -1) {
+					alert("未找到【"+aInput[1].value+"】!!");
+					aInput[1].value = "";
+					return;
+				}
+				var str = oText.innerHTML;
+				
+                oText.innerHTML = str.split(aInput[1].value).join("<span class='light'>"+aInput[2].value+"</span>");  //替换
+                aInput[1].value = "";
+                aInput[2].value = "";
+			}
+			function Fn1(n){   //控制底部查找和替换按钮的背景和字体颜色变化
+				for(var i=0;i<aDiv.length;i++){
+					aP[i].className = "";
+					aDiv[i].style.display = "none";
+				}
+				aP[n].className = "red";
+				aDiv[n].style.display = "block";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<p id="cont">妙味课堂是一支充满温馨并且极富人情味的IT培训团队；2010-2011年，妙味深度关注WEB前端开发领域，为此精心研发出一套灵活而充满趣味的JavaScript课程。2011-2013年，妙味精准研发出最新HTML5\CSS3课程，并退出远程培训课程方案，尝试将线下优良的培训模式移植到远程网络培训中，希望尽最大努力，将一种快乐愉悦的授课体验、结合HTML\CSS\JS知识点，精准传递给妙味课堂的每一位学员。
+		</p>
+		<div id="sideBtn">
+		    <p>展开</p>
+			<ul>
+				<li class="li1">查找</li>
+				<li class="li2">替换</li>
+			</ul>
+		</div>
+		<div id="bottomShow" style="display: none;">
+			<h2>
+				<p>查找</p>
+				<p>替换</p>
+			</h2>
+			<div>
+				<div>
+					<input type="text" >
+					<button>查找</button>
+				</div>
+				<div style="display: none;">
+					<input type="text" >
+					<input type="text" >
+					<button>替换</button>
+				</div>
+				<span class="close">X</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
