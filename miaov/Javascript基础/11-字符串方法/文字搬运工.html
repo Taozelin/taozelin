@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字搬运工</title>
+	<style type="text/css">
+        body {
+        	font-size: 16px;
+        	font-family: "微软雅黑";
+        	background-color: #e7eff7;
+        }
+
+        p, ul, li {
+        	padding: 0px;
+        	margin: 0px;
+        }
+
+        ul {
+        	list-style: none;
+        }
+
+		#main {
+			width: 800px;
+			height: 240px;
+			border: 10px solid #c0c0c0;
+			margin: 0 auto;
+			padding-top: 10px;
+			padding-left: 10px;
+			background-color: #fff;
+		}
+
+		textarea {
+			width: 320px;
+			height: 220px;
+			background-color: #efefd6;
+			float: left;
+		}
+
+		.center {
+			width: 120px;
+			height: 220px;
+			float: left;
+			margin-left: 8px;
+			margin-right: 8px;
+		}
+
+		.center div {
+			width: 120px;
+			height: 40px;
+			background-color: #f76300;
+			color: #fff;
+			font-size: 15px;
+			text-align: center;
+			line-height: 40px;
+			cursor: pointer;
+		}
+
+		.center p {
+			width: 120px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+
+		#main .right {
+			width: 320px;
+			height: 220px;
+			background-color: #63eff7;
+			float: left;
+		}
+
+		.center ul {
+			width: 78px;
+			height: 10px;
+			margin-left: 26px;
+			opacity: 0;
+			filter: alpha(opacity=0);
+		}
+
+		.center ul li {
+			width: 8px;
+			height: 10px;
+			float: left;
+			margin-right: 2px;
+			background-color: #e7a521;
+		}
+
+		.center .marginright {
+			margin-right: 0px;
+		}
+
+		.center .light {
+			background-color: #ff0000;
+		}
+	</style>
+	<script type="text/javascript" src="js/miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oTextarea = document.getElementsByTagName("textarea")[0];
+			var main = document.getElementById("main");
+			var oDiv = main.getElementsByTagName("div")[1];
+			var right = main.getElementsByTagName("div")[2];
+			var oP = main.getElementsByTagName("p")[0];
+			var aSpan = oP.getElementsByTagName("span");
+			var oUl = main.getElementsByTagName("ul")[0];
+			var aLi = oUl.getElementsByTagName("li");
+			var onOff = true;
+			var n = 0;
+			
+
+			oDiv.onclick = function() {
+				if (!onOff) {
+					return;     //防止多次点击
+				}
+				if (!oTextarea.value) {
+					alert("请输入内容！");
+					return;                  //未输入内容的处理方式
+				}
+				shine = setInterval(function(){   //中间小方块的动画
+					if (n == aLi.length) {
+						n = 0;
+					}
+					for(var i=0;i<aLi.length;i++){
+						aLi[i].className = "";
+					}
+					aLi[n].className = "light";
+					n++;
+				},100);
+				aSpan[0].innerHTML = 0 ;   //把中间的左边的数字复位
+				opacity(oUl,2,100);     //让中间的动画显示
+				onOff = false;
+				right.innerHTML = "";   
+				aSpan[1].innerHTML = oTextarea.value.length;  //中间右边的数字
+				timer = setInterval(function(){
+					var arrTxt = oTextarea.value.split("");   //把左边的内容分割成每一个小块，放入数组里面
+					right.innerHTML = right.innerHTML + arrTxt[0];  //右边的内容每次从数组里增加一个文字
+					oTextarea.value = oTextarea.value.substring(1);  //同时左边的内容每次从头部减少一个文字
+					aSpan[0].innerHTML = parseInt(aSpan[0].innerHTML) + 1;  //中间左边的数字每次增加1
+					if (!oTextarea.value) {
+						clearInterval(timer);
+						clearInterval(shine);
+						onOff = true;
+						opacity(oUl,2,0);   //如果左边的文字全部转移完毕，停止动画
+					}
+				},100)
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<textarea>这是一个文本输入框，右边不是文本输入框！</textarea>
+		<div class="center">
+			<div>把文字右移</div>
+			<p><span>0</span> / <span>0</span></p>
+			<ul>
+				<li class="light"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li class="marginright"></li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>
