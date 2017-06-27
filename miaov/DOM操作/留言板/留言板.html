@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<style type="text/css">
+
+		#wrap {
+			width: 500px;
+			margin: 0 auto;
+		}
+
+		#wrap h1 {
+			width: 500px;
+			height: 50px;
+			border-bottom: 2px solid #000;
+			font-size: 32px;
+			line-height: 50px;
+		}
+
+		#wrap div {
+			border: 1px solid #ACACAC;
+			padding-left: 20px;
+		}
+
+		#wrap textarea {
+			width: 500px;
+			height: 100px;
+		}
+
+		#wrap input {
+			width: 500px;
+			height: 50px;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		ul li {
+			height: 26px;
+		}
+
+		.left {
+			float: left;
+		} 
+		.right {
+			float: right;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var wrap = document.getElementById("wrap");
+			var tip = document.getElementById("tip");
+			var btn = wrap.getElementsByTagName("input")[0];
+			var txt = wrap.getElementsByTagName("textarea")[0];
+			var oDiv = wrap.getElementsByTagName("div")[0];
+			var oUl = document.getElementById("oUl");
+			var aLi = oUl.getElementsByTagName("li");
+            var aStrong = oUl.getElementsByTagName("strong");
+            var aSpan = oUl.getElementsByTagName("span");
+            var aA = oUl.getElementsByTagName("a");
+			var n = 0;   //顺序标记
+			btn.onclick = function() {
+				if (!txt.value) {
+					alert("请输入留言！");
+					return;
+				}
+				n++;
+                tip.style.display = "none";     //留言框中的提醒内容
+                var oLi = document.createElement("li");
+                
+                oLi.innerHTML = "<strong class='left'>"+n+".</strong>"+txt.value+"<em class='right'><a href='#'>删除</a>第<span>"+n+"</span>条</em>";
+                oLi.style.backgroundColor = "#808080";
+                oUl.appendChild(oLi);    //创建li元素并插入ul中
+
+				for(var i=0;i<aLi.length;i++) {
+					aLi[i].onmouseover = function() {
+						this.style.backgroundColor = "#FEF835";
+						this.lastChild.style.display = "block";
+					}
+					aLi[i].onmouseout = function() {
+						this.style.backgroundColor = "#808080";
+						this.lastChild.style.display = "none";
+					}
+				}
+				for(var i=0;i<aA.length;i++) {
+					
+					aA[i].onclick = function() {
+
+						 
+						oUl.removeChild(this.parentNode.parentNode);
+
+						for(var i=0;i<aStrong.length;i++) {
+							aStrong[i].innerHTML = i+1 + ".";
+							aSpan[i].innerHTML = i+1;
+						}
+
+						if (oUl.children.length == 0) {
+							tip.style.display = "block";
+						}
+						n = oUl.children.length;  //重置n.
+					}
+				}
+				txt.value = ''; //输入完后，情空输入框
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>留言内容</h1>
+		<div>
+		    <p id="tip"><em>这里会显示留言内容</em></p>
+		    <ul id="oUl"></ul>
+		</div>
+		<textarea></textarea>
+		<input type="button" name="btn" value="发表留言">
+	</div>
+	<!--1.留言板：
+		 		需求：
+		 			1)当没有内容的时候点击提交按钮，弹出请输入内容
+		 			
+		 			2)有发言就将留言的内容添加到box只，并且提示的内容消失
+		 			
+		 			3)移入移出有效果
+		 			
+		 			4)当删除的时候，序列号重排
+		 			
+		 			5)继续输入同样按照顺序去排列
+		 			
+		 			6)当内容被删除完了之后提示内容显示-->
+</body>
+</html>
