@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oUl = document.getElementById("oUl");
+			var aLi = oUl.getElementsByTagName("li");
+			for(var i=0;i<aLi.length;i++) {
+				var aInput = aLi[i].getElementsByTagName("input");
+				aInput[0].onclick = function() {
+					oUl.insertBefore(this.parentNode,this.parentNode.previousElementSibling);
+				}
+				aInput[1].onclick = function() {
+					if (this.parentNode == oUl.lastElementChild) {
+						oUl.insertBefore(this.parentNode,oUl.childNodes[0]);
+						return;
+					}
+					oUl.insertBefore(this.parentNode.nextElementSibling,this.parentNode);
+				}
+			}
+		}
+		/*
+		2.上移下移
+				需求：
+					1）点击上移就将当前的按钮的父级上移一位
+					
+					2）当点击第一个时候将当前按钮的父级移动到最后一位
+					
+					3）当点击最后一个时候将当前按钮的父级移动到首位
+		*/
+	</script>
+</head>
+<body>
+	<ul id="oUl">
+		<li>
+			1、爷爷
+			<input type="button" name="btn" value="上移">
+			<input type="button" name="btn" value="下移">
+		</li>
+		<li>
+			2、爸爸
+			<input type="button" name="btn" value="上移">
+			<input type="button" name="btn" value="下移">
+		</li>
+		<li>
+			3、叔叔
+			<input type="button" name="btn" value="上移">
+			<input type="button" name="btn" value="下移">
+		</li>
+		<li>
+			4、哥哥
+			<input type="button" name="btn" value="上移">
+			<input type="button" name="btn" value="下移">
+		</li>
+		<li>
+			5、弟弟
+			<input type="button" name="btn" value="上移">
+			<input type="button" name="btn" value="下移">
+		</li>
+
+	</ul>
+</body>
+</html>
