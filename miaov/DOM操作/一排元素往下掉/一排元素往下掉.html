@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一排元素往下掉</title>
+	<script type="text/javascript" src="js/miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var str = '';
+			var len = 20;
+			var aDiv = document.getElementsByTagName('div');
+			var timer = null;
+			var timer2 = null;
+			var left = 19;
+			var right = 0;
+            var onOff = true;
+
+			for ( var i=0; i<len; i++ ) {
+				str += '<div style="width:50px; height:50px; background:red; position:absolute; top:0px; left:'+ i*60 +'px;"></div>';
+			}
+			document.body.innerHTML = str;
+			for(var c=0;c<aDiv.length;c++) {
+				aDiv[c].id = c;
+				aDiv[c].onclick = function() {
+					if (!onOff) {
+						return;
+					}
+					onOff = false;
+					if (this.id == 0) {
+						timer = setInterval(function(){
+							doMove(aDiv[right],'top',23,500);
+							right++;
+							if (right == 20) {
+								clearInterval(timer);
+							}
+						},100)
+					}
+					if (this.id == 19) {
+						timer = setInterval(function(){
+							doMove(aDiv[left],'top',23,500);
+							left--;
+							if (left == -1) {
+								clearInterval(timer);
+							}
+						},100)
+					}
+					if (this.previousElementSibling && this.nextElementSibling) {
+						that = this.id;
+						left = that;
+						right = that;
+						doMove(this,'top',23,500);
+						timer = setInterval(function(){
+							left--;
+							doMove(aDiv[left],'top',23,500);
+							if (left == 0) {
+								clearInterval(timer);
+							}
+						},100)
+						timer2 = setInterval(function(){
+							right++;
+							doMove(aDiv[right],'top',23,500);
+							if (right == 19) {
+								clearInterval(timer2);
+							}
+						},100)
+					}
+				}
+			}
+		}
+		/*
+		5.一排元素往下掉
+				需求：
+				点击当前元素，看看是否有上个兄弟节点或者下个兄弟节点，
+				如果有，就让他们依次下落（当前元素也会下落），否则就不用下落
+		*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
