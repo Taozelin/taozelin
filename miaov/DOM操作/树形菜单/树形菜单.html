@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>树形菜单</title>
+	<style type="text/css">
+	    h2 {
+	    	font-size: 25px;
+	    	font-family: "微软雅黑";
+	    	font-weight: normal;
+	    }
+		.show {
+			list-style: circle;
+			display: block;
+		}
+		.hide {
+			list-style: square;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var main = document.getElementById("main");
+			var aH2 = main.getElementsByTagName("h2");
+			for(var i=0;i<aH2.length;i++) {
+				aH2[i].onOff = true;
+				aH2[i].onclick = function() {
+					if (!this.nextElementSibling) {
+						return;
+					}
+					if (this.nextElementSibling.nodeType == 1 && this.onOff == true) {
+						if (this.parentNode.parentNode.children.length>1) {
+							for(var i=0;i<this.parentNode.parentNode.children.length;i++){
+								var aUl = this.parentNode.parentNode.children[i].getElementsByTagName("ul");
+								for(var a=0;a<aUl.length;a++){
+									aUl[a].className = "hide";
+								}
+							}
+						}
+						this.nextElementSibling.className = "show";
+						
+					}else {
+						this.nextElementSibling.className = "hide";
+					}
+					this.onOff = !this.onOff;
+				}
+			}
+		}
+		/*
+		6.树形菜单
+				需求：
+					1.点击h2的时候如果h2下有ul就展开
+					2.点击h2的时候，找到h2的父级的父级，通过父级的父级（ul）
+					    下去找父级的兄弟节点，把父级（li）排除，将父级的兄弟节点中的ul都关闭
+		*/
+	</script>
+</head>
+<body>
+	<ul id="main" class="show">
+		<li>
+			<h2>一级菜单</h2>
+			<ul class="hide">
+				<li>
+					<h2>二级菜单</h2>
+				</li>
+				<li>
+					<h2>二级菜单</h2>
+					<ul class="hide">
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>二级菜单</h2>
+					<ul class="hide">
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<h2>一级菜单</h2>
+			<ul class="hide">
+				<li>
+				    <h2>二级菜单</h2>
+					<ul class="hide">
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>二级菜单</h2>
+				</li>
+				<li>
+					<h2>二级菜单</h2>
+					<ul class="hide">
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<h2>一级菜单</h2>
+			<ul class="hide">
+				<li>
+					<h2>二级菜单</h2>
+				</li>
+				<li>
+					<h2>二级菜单</h2>
+					<ul class="hide">
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+						<li>
+							<h2>三级菜单</h2>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>二级菜单</h2>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
